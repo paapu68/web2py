@@ -1,0 +1,9 @@
+{{extend 'upperbar.html'}}
+<h1>Kurssi NIMI</h1>
+
+työnnimi oppID Sukumini Etunimi Korjattu Arvosteltu kopioiTyö TalletaKorjattu</br>
+coulombin Laki  1  Jokinen Jussi ei ei x x </br>
+JNE</br>
+
+
+

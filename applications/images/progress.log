@@ -1,0 +1,14 @@
+[2014-05-30 13:55:26] START
+[2014-05-30 13:56:15] EDIT images/models/db.py: -10
+[2014-05-30 13:59:15] EDIT images/views/default/index.html: -24
+[2014-05-30 14:00:35] CREATE showw.html: 0
+[2014-05-30 14:00:55] DELETE images/views/showw.html: -3
+[2014-05-30 14:01:05] CREATE show.html: 0
+[2014-05-30 14:01:31] EDIT images/views/show.html: 13
+[2014-05-30 14:02:09] EDIT images/models/db.py: 3
+[2014-05-30 14:03:12] EDIT images/controllers/default.py: -14
+[2014-05-30 14:05:38] EDIT images/controllers/default.py: -29
+[2014-05-30 14:06:59] EDIT images/controllers/default.py: 2
+[2014-05-30 14:09:48] EDIT images/controllers/default.py: 4
+[2014-05-30 14:10:29] CREATE manage.html: 0
+[2014-05-30 14:10:47] EDIT images/views/manage.html: 0

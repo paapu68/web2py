@@ -1,0 +1,51 @@
+# -*- coding: utf-8 -*-
+
+db = DAL("sqlite://storage.sqlite")
+
+db.define_table('kurssityo',
+   Field('title', unique=True),
+   Field('palautettu', 'upload'),
+   Field('korjattu', 'upload'),
+   Field('arvosana'),
+   format = '%(title)s')
+
+db.define_table('kurssi',
+   Field('title', unique=True),
+   Field('kurssityo_id', 'reference kurssityo'),
+   format = '%(title)s')
+
+db.define_table('opettaja',
+   Field('sukunimi'),
+   Field('etunimi'),
+   Field('kurssi_id', 'reference kurssi'),
+   Field('kurssityo_id', 'reference kurssityo'),
+   Field('oppilas_id', 'reference oppilas'),
+   format = '%(sukunimi)s')
+
+db.define_table('oppilas',
+   Field('sukunimi'),
+   Field('etunimi'),
+   Field('kurssi_id', 'reference kurssi'),
+   Field('kurssityo_id', 'reference kurssityo'),
+   format = '%(sukunimi)s')
+
+db.define_table('yllapitaja',
+   Field('sukunimi'),
+   Field('etunimi'),
+   Field('kurssityo_id', 'reference kurssityo'),
+   Field('oppilas_id', 'reference oppilas'),
+   Field('opettaja_id', 'reference opettaja'),
+   format = '%(sukunimi)s')
+
+db.define_table('systeemi',
+   Field('kirjautunut'),
+   Field('viimeisin_bacup','date'))
+
+
+db.kurssityo.title.requires = IS_NOT_IN_DB(db, db.kurssityo.title)
+#db.post.image_id.requires = IS_IN_DB(db, db.image.id, '%(title)s')
+#db.post.author.requires = IS_NOT_EMPTY()
+#db.post.email.requires = IS_EMAIL()
+#db.post.body.requires = IS_NOT_EMPTY()
+
+#db.post.image_id.writable = db.post.image_id.readable = False

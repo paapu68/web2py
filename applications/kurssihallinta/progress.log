@@ -1,0 +1,7 @@
+[2014-05-27 16:15:57] START
+[2014-05-27 16:15:57] EDIT kurssihallinta/models/db.py: 2
+[2014-05-27 16:36:56] EDIT kurssihallinta/views/default/opettaja_kaikki_kurssit.html: 2
+[2014-05-27 16:38:21] EDIT kurssihallinta/views/default/opettaja_kaikki_kurssit.html: 0
+[2014-05-27 16:46:53] EDIT kurssihallinta/controllers/default.py: 0
+[2014-05-30 13:42:03] EDIT kurssihallinta/models/db.py: 3
+[2014-05-30 13:43:26] EDIT kurssihallinta/controllers/default.py: 0
