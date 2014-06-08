@@ -1,0 +1,10 @@
+{{extend 'upperbar.html'}}
+<h1>Kurssilista (uusin ensin)</h1>
+
+<ul>
+{{for kurssi in kurssit:}}
+{{=LI(A(kurssi.title, _href=URL("show", args=image.id)))}}
+{{pass}}
+</ul>
+
+kurssi oppilaita keskiarvo poista valitse oppilas ei palauttanut ope ei ladannut ope ei korjannut jee </br>

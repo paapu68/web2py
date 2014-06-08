@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.KeyError'> 'image'"
+p3
+sS'layer'
+p4
+S'/home/mka/web2py/applications/kurssihallinta/models/db.py'
+p5
+sS'code'
+p6
+S'# -*- coding: utf-8 -*-\n\ndb = DAL("sqlite://storage.sqlite")\n\ndb.define_table(\'kurssityo\',\n   Field(\'title\', unique=True),\n   Field(\'palautettu\', \'upload\'),\n   Field(\'korjattu\', \'upload\'),\n   Field(\'arvosana\',\'decimal(4,2)\'),\n   format = \'%(title)s\')\n\ndb.define_table(\'opettaja\',\n   Field(\'sukunimi\'),\n   Field(\'etunimi\'),\n   format = \'%(sukunimi)s\')\n\ndb.define_table(\'systeemi\',\n   Field(\'kirjautunut\'),\n   Field(\'viimeisin_bacup\',\'date\'))\n\n\ndb.kurssityo.title.requires = IS_NOT_IN_DB(db, db.kurssityo.title)\ndb.post.image_id.requires = IS_IN_DB(db, db.image.id, \'%(title)s\')\ndb.post.author.requires = IS_NOT_EMPTY()\ndb.post.email.requires = IS_EMAIL()\ndb.post.body.requires = IS_NOT_EMPTY()\n\ndb.post.image_id.writable = db.post.image_id.readable = False\n'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/usr/lib/pymodules/python2.7/gluon/restricted.py", line 204, in restricted\n    exec ccode in environment\n  File "/home/mka/web2py/applications/kurssihallinta/models/db.py", line 23, in <module>\n    db.post.image_id.requires = IS_IN_DB(db, db.image.id, \'%(title)s\')\n  File "/usr/lib/pymodules/python2.7/gluon/dal.py", line 5119, in __getattr__\n    return self[key]\n  File "/usr/lib/pymodules/python2.7/gluon/dal.py", line 5113, in __getitem__\n    return dict.__getitem__(self, str(key))\nKeyError: \'image\'\n'
+p11
+s.

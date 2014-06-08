@@ -1,0 +1,13 @@
+{{extend 'upperbar.html'}}
+<h1>Kurssilista (uusin ensin)</h1>
+<ul>
+{{for kurssi in kurssit:}}
+{{=LI(A(kurssi.title, _href=URL("oppilas","oppilas_yksi_kurssi", args=kurssi.id)))}}
+{{pass}}
+
+kurssi omaKA muidenKA valitse oppilasEiPalauttanut opeEiLadannut opeEiKorjannut </br>
+<h3>VARSINAISET KURSSIT TÄHÄN</h3>
+
+{{=oppilaita_kurssilla}}
+
+

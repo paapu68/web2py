@@ -1,0 +1,6 @@
+# -*- coding: utf-8 -*-
+
+def kurssit():
+    """ kurssilistaan liittyvät asiat """
+    kurssit = kurssitdb.haekaikkikurssit()
+    return dict(kurssit=kurssit)

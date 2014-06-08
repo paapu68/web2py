@@ -1,0 +1,54 @@
+#Heroku begin
+if not request.env.web2py_runtime_gae:
+    ## if NOT running on Google App Engine use SQLite or other DB
+    try: db = DAL(os.environ.get('DATABASE_URL'))
+    except: db = DAL('sqlite://storage.sqlite')
+#Heroku end
+
+db.define_table('kurssi',
+   Field('title', unique=True),
+   format = '%(title)s')
+
+db.define_table('kurssityo',
+   Field('title', unique=True),
+   Field('palautettu', 'upload'),
+   Field('korjattu', 'upload'),
+   Field('arvosana'),
+   Field('kurssi_id', 'reference kurssi'),
+   format = '%(title)s')
+
+db.define_table('oppilas',
+   Field('sukunimi'),
+   Field('etunimi'),
+   Field('kurssi_id', 'reference kurssi'),
+   Field('kurssityo_id', 'reference kurssityo'),
+   format = '%(sukunimi)s')
+
+db.define_table('opettaja',
+   Field('sukunimi'),
+   Field('etunimi'),
+   Field('kurssi_id', 'reference kurssi'),
+   Field('kurssityo_id', 'reference kurssityo'),
+   Field('oppilas_id', 'reference oppilas'),
+   format = '%(sukunimi)s')
+
+db.define_table('yllapitaja',
+   Field('sukunimi'),
+   Field('etunimi'),
+   Field('kurssityo_id', 'reference kurssityo'),
+   Field('oppilas_id', 'reference oppilas'),
+   Field('opettaja_id', 'reference opettaja'),
+   format = '%(sukunimi)s')
+
+db.define_table('systeemi',
+   Field('kirjautunut'),
+   Field('viimeisin_bacup','date'))
+
+
+db.kurssityo.title.requires = IS_NOT_IN_DB(db, db.kurssityo.title)
+#db.post.image_id.requires = IS_IN_DB(db, db.image.id, '%(title)s')
+#db.post.author.requires = IS_NOT_EMPTY()
+#db.post.email.requires = IS_EMAIL()
+#db.post.body.requires = IS_NOT_EMPTY()
+
+#db.post.image_id.writable = db.post.image_id.readable = False

@@ -1,0 +1,5 @@
+[2014-06-06 16:00:20] START
+[2014-06-06 16:01:14] EDIT manage/models/db.py: -25
+[2014-06-06 16:03:25] EDIT manage/controllers/default.py: -39
+[2014-06-06 16:04:19] CREATE default/manage.html: 0
+[2014-06-06 16:04:37] EDIT manage/views/default/manage.html: 7

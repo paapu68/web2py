@@ -1,0 +1,99 @@
+# -*- coding: utf-8 -*-
+
+
+@auth.requires_membership('opettaja')
+def kaikki_kurssit():
+    """
+    Opettajan kaikki kurssit
+    """
+    import sys
+    #kurssit = db().select(db.kurssi.ALL, orderby=db.kurssi.title)
+    #query = (db.opettaja.id == auth.user.id)&\
+    #    (db.kurssi.opettaja_id == db.opettaja.id)
+    query = (db.opettaja.id == db.auth_user.id)&\
+        (db.kurssi.opettaja_id == db.opettaja.id)
+    opettajan_kurssit = db(query).select()
+    oppilaita_kurssilla = []
+    #tehdään vale database käyttäen haettujen kurssien nimiä
+    #jotta saadaan ne alasvetovalikkoon
+    db.define_table('valitsekurssi',
+                    Field('kurssin_nimi'),
+                    format = '%(kurssin_nimi)s'
+                    )
+    for rivi in opettajan_kurssit:
+        db.valitsekurssi.insert(kurssin_nimi=rivi.kurssi.title)
+        #print rivi.kurssi.title
+        kurssi = rivi.kurssi
+        query = (rivi.kurssi.id == db.oppilaatKursseilla.kurssi_id)
+        oppilaita_kurssilla.append(db(query).count())
+
+    form = SQLFORM.factory(
+        Field('kurssin_nimi', requires=IS_IN_DB(db, 
+                                        db.valitsekurssi.id,
+                                        '%(kurssin_nimi)s', zero=None)))
+    #form = SQLFORM.factory(Field('valitsekurssi','reference valitsekurssi')) 
+    db.valitsekurssi.drop()
+    #print opettajan_kurssit
+    #db.define_table('product',
+    #                Field('name'),redefine=True)
+    #db.product.insert(name='Toy Car')
+    #db.product.insert(name='Mazda')
+    #form = SQLFORM.factory(
+    #    Field('name', requires=IS_IN_DB(db, db.product.id, '%(name)s')))
+
+    #input1 = INPUT(_type='submit', _name='test', value='b')
+    #select1 = SELECT('a', 'b', value='b')
+
+
+    response.view = 'opettaja/opettaja_kaikki_kurssit.html'
+
+    #print form.vars.valitsekurssi
+    #print form.vars.nimi
+    print request.vars.kurssin_nimi
+
+    if form.process().accepted:
+        session.visitor_name = form.vars.visitor_name
+        redirect(URL('second'))
+
+
+    #config = dict(color='black', language='English')
+    #form = SQLFORM.dictform(config)
+    #if form.process().accepted:
+    #    session.config.update(form.vars)
+
+    #form = SQLFORM(opettajan_kurssit)
+
+
+    #form = SQLFORM(db.kurssi,fields=['title'],
+    #               buttons=[TAG.button('Next',_type="submit")])
+    #Field('kurssi'))
+
+    #form = SQLFORM.factory(
+    #Field('kurssi'))
+
+    #form = FORM(SELECT(
+    #OPTION('Option1', _value='1'),
+    #OPTION('Option2', _value='2')
+    #))
+
+    #form.add_button('Select', URL('kaikki_kurssit'))
+
+    #if form.process().accepted:
+    #    print "OK",form.vars
+    
+
+    return dict(opettajan_kurssit=opettajan_kurssit,
+                oppilaita_kurssilla=oppilaita_kurssilla,
+                form=form)
+
+
+#@auth.requires_membership('opettaja')
+def yksi_kurssi():
+    """
+    Opettajan yksi kurssi
+    """
+    kurssit = db(db.kurssi.id == db.opettaja.kurssi_id).select()
+    oppilaita_kurssilla = 1
+    #db(db.kurssi.id > 0).count()
+    response.view = 'opettaja/opettaja_yksi_kurssi.html'
+    return dict(kurssit=kurssit,oppilaita_kurssilla=oppilaita_kurssilla)

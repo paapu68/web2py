@@ -1,0 +1,19 @@
+<!-- {{extend 'upperbar.html'}} -->
+
+{{=A('click me', callback=URL('oppilas_kaikki_kurssit'))}}
+{{=INPUT(_type='radio', _name='test', value='b')}}
+
+<h1>Kurssilista (uusin ensin)</h1>
+
+
+
+<ul>
+{{for kurssi in kurssit:}}
+{{=LI(A(kurssi.title, _href=URL("default","opettaja_yksi_kurssi", args=kurssi.id)))}}
+{{pass}}
+
+</ul>
+
+kurssi oppilaita keskiarvo poista valitse oppilas ei palauttanut ope ei ladannut ope ei korjannut jee </br>
+
+{{=oppilaita_kurssilla}}

@@ -1,0 +1,9 @@
+{{extend 'layout.html'}}
+{{=form}}
+<table>
+{{for friend in friends:}}
+  <tr>
+    <td>{{=friend.name}}</td>
+  </tr>
+{{pass}}
+</table>

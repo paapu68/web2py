@@ -1,0 +1,49 @@
+# -*- coding: utf-8 -*-
+
+
+@auth.requires_membership('opettaja')
+def opettaja():
+    """
+    Opettajan kaikki kurssit
+    """
+    import sys
+    #kurssit = db().select(db.kurssi.ALL, orderby=db.kurssi.title)
+    #query = (db.opettaja.id == auth.user.id)&\
+    #    (db.kurssi.opettaja_id == db.opettaja.id)
+    query = (db.opettaja.id == db.auth_user.id)&\
+        (db.kurssi.opettaja_id == db.opettaja.id)
+    opettajan_kurssit = db(query).select()
+    oppilaita_kurssilla = []
+    for rivi in opettajan_kurssit:
+        kurssi = rivi.kurssi
+        query = (rivi.kurssi.id == db.oppilaatKursseilla.kurssi_id)
+        oppilaita_kurssilla.append(db(query).count())
+    pass
+
+    #upper bar
+    #check = FORM(INPUT(_name='visitor_name', requires=IS_NOT_EMPTY()),
+    #          INPUT(_type='submit'))
+    #if check.process().accepted:
+    #    session.visitor_name = check.vars.visitor_name
+    #    redirect(URL('opettaja'))
+    #query = (db.kurssi.id == auth.user.id)&\
+    #    (db.oppilas.kurssi_id == db.kurssi.id)
+    #oppilaita_kurssilla = db(query).count()
+
+    #kurssit = db().select(db.kurssi.id == 1, orderby=db.kurssi.title)
+    #oppilaita_kurssilla = db(db.kurssi.id > 0).count()
+    #db(db.kurssi.id == db.opettaja.kurssi_id).count()
+    response.view = 'opettaja/opettaja_kaikki_kurssit.html'
+    return dict(opettajan_kurssit=opettajan_kurssit,
+                oppilaita_kurssilla=oppilaita_kurssilla)
+
+#@auth.requires_membership('opettaja')
+def opettaja_yksi_kurssi():
+    """
+    Opettajan yksi kurssi
+    """
+    kurssit = db(db.kurssi.id == db.opettaja.kurssi_id).select()
+    oppilaita_kurssilla = 1
+    #db(db.kurssi.id > 0).count()
+    response.view = 'opettaja/opettaja_yksi_kurssi.html'
+    return dict(kurssit=kurssit,oppilaita_kurssilla=oppilaita_kurssilla)

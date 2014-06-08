@@ -9,36 +9,42 @@ if not request.env.web2py_runtime_gae:
 auth = Auth(db)
 auth.define_tables(username=True)
 
-db.define_table('kurssi',
-   Field('title', unique=True),
-   format = '%(title)s')
-
-db.define_table('tyo',
-   Field('title', unique=True),
-   Field('kurssi_id', 'reference kurssi'),
-   format = '%(title)s')
-
-db.define_table('oppilas',
-   Field('user_id', 'reference auth_user'),
-   Field('kurssi_id', 'reference kurssi'),
-   Field('tyo_id', 'reference tyo'),
-   format = '%(auth.user.last_name)s')
-
 db.define_table('opettaja',
    Field('user_id', 'reference auth_user'),
+   format = '%(id)s')
+#   format=lambda r: '%s %s' % (db.auth_user[r.auth_user].first_name,db.auth_user[r.auth_user].last_name))
+
+db.define_table('opiskelija',
+   Field('user_id', 'reference auth_user'),
+   format = '%(id)s')
+#   format = '%(user_id.first_name)s %(user_id.last_name)s')
+
+db.define_table('kurssi',
+   Field('title', unique=True),
+   Field('opettaja_id', 'reference opettaja'),
+   format = '%(title)s')
+
+#liitostaulu, monen suhde moneen oppilaan ja kurssin välillä
+db.define_table('opiskelijatKursseilla',
+   Field('opiskelija_id', 'reference opiskelija'),
    Field('kurssi_id', 'reference kurssi'),
-   Field('tyo_id', 'reference tyo'),
-   Field('oppilas_id', 'reference oppilas'),
-   format = '%(auth.user.last_name)s')
+   format = '%(title)s')
+
+
+#db.define_table('tyo',
+#   Field('title', unique=True),
+#   Field('kurssi_id', 'reference kurssi'),
+#   Field('opettaja_id', 'reference opettaja'),
+#   Field('opiskelija_id', 'reference opiskelija'),
+#   format = '%(title)s')
 
 db.define_table('kurssityo',
+   Field('otsikko'),
    Field('palautettu', 'upload'),
    Field('korjattu', 'upload'),
    Field('arvosana'),
    Field('kurssi_id', 'reference kurssi'),
-   Field('tyo_id', 'reference tyo'),
-   Field('oppilas_id', 'reference oppilas'),
-   format = '%(id)s')
+   format = '%(otsikko)s')
 
 #db.tyo.title.requires = IS_NOT_IN_DB(db, db.tyo.title)
 #db.post.image_id.requires = IS_IN_DB(db, db.image.id, '%(title)s')

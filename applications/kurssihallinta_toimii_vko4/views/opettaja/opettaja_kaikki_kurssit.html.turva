@@ -1,0 +1,26 @@
+<!--  {{extend 'upperbar.html'}} -->
+
+<!-- 
+{{=A('click me', callback=URL('opettaja_kaikki_kurssit'))}}
+{{=INPUT(_type='radio', _name='test', value='b')}}
+-->
+
+<h1>Kurssilista (uusin ensin)</h1>
+
+<!-- 
+{{=form}}
+
+ -->
+
+<!-- 
+<ul> 
+{{for rivi, oppilaita in zip(opettajan_kurssit, oppilaita_kurssilla):}}
+{{=(A(rivi.kurssi.title, _href=URL("opettaja","yksi_kurssi", args=rivi.kurssi.id)))}}
+{{=oppilaita}}
+{{pass}}
+</ul>
+
+
+kurssi oppilaita keskiarvo poista valitse oppilas ei palauttanut ope ei ladannut ope ei korjannut jee </br>
+
+-->

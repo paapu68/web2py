@@ -1,0 +1,7 @@
+{{extend 'upperbar.html'}}
+<h1>Kurssilista (uusin ensin)</h1>
+
+kurssi omaKA muidenKA valitse oppilasEiPalauttanut opeEiLadannut opeEiKorjannut </br>
+<h3>VARSINAISET KURSSIT TÄHÄN</h3>
+
+
