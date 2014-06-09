@@ -9,6 +9,10 @@ def hae_opettajan_kaikki_kurssit(db):
     #haetaan tietokannasta kaikki opettajan kurssit
     query = (db.opettaja.id == db.auth_user.id)&\
         (db.kurssi.opettaja_id == db.opettaja.id)
-    return db(query).select()
+#    selectable = lambda ids: nayta(ids)
+    return query
+#    return SQLFORM.grid(query,
+#                        selectable=selectable)
+#    return db(query).select()
 
 

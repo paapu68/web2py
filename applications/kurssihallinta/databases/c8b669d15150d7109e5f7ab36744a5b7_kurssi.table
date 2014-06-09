@@ -2,13 +2,13 @@
 S'kurssityo_id'
 p2
 (dp3
-S'type'
+S'sortable'
 p4
-S'reference kurssityo'
-p5
-sS'sortable'
-p6
 I3
+sS'type'
+p5
+S'reference kurssityo'
+p6
 sS'sql'
 p7
 S'INTEGER REFERENCES kurssityo(id) ON DELETE CASCADE'
@@ -36,7 +36,7 @@ sS'type'
 p17
 S'string'
 p18
-ssS'opettaja_id'
+ssS'title'
 p19
 (dp20
 S'length'
@@ -44,20 +44,20 @@ p21
 I512
 sS'unique'
 p22
-I00
+I01
 sS'sortable'
 p23
-I3
+I2
 sS'sql'
 p24
-S'INTEGER REFERENCES opettaja (id) ON DELETE CASCADE'
+S'CHAR(512) UNIQUE'
 p25
 sS'notnull'
 p26
 I00
 sS'type'
 p27
-S'reference opettaja'
+S'string'
 p28
 ssS'oppilas_id'
 p29
@@ -82,22 +82,22 @@ sS'type'
 p37
 S'reference oppilas'
 p38
-ssS'title'
+ssS'opettaja_id'
 p39
 (dp40
 g21
 I512
 sg22
-I01
+I00
 sg23
-I2
+I3
 sg24
-S'CHAR(512) UNIQUE'
+S'INTEGER REFERENCES opettaja (id) ON DELETE CASCADE'
 p41
 sg26
 I00
 sg27
-S'string'
+S'reference opettaja'
 p42
 ssS'id'
 p43

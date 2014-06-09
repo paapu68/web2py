@@ -22,67 +22,67 @@ sS'type'
 p10
 S'upload'
 p11
-ssS'oppilas_id'
+ssS'id'
 p12
 (dp13
-S'sortable'
-p14
-I7
-sS'sql'
-p15
-S'INTEGER REFERENCES oppilas (id) ON DELETE CASCADE'
-p16
-sS'length'
-p17
+g4
 I512
-sS'notnull'
-p18
+sg5
 I00
-sS'unique'
-p19
+sg6
+I1
+sg7
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p14
+sg9
 I00
-sS'type'
-p20
-S'reference oppilas'
-p21
+sg10
+S'id'
+p15
 ssS'title'
-p22
-(dp23
+p16
+(dp17
 S'sortable'
-p24
+p18
 I2
 sS'sql'
-p25
+p19
 S'CHAR(512) UNIQUE'
-p26
+p20
 sS'length'
-p27
+p21
 I512
 sS'notnull'
-p28
+p22
 I00
 sS'unique'
-p29
+p23
 I01
 sS'type'
-p30
+p24
 S'string'
-p31
+p25
 ssS'opettaja_id'
-p32
-(dp33
-g14
+p26
+(dp27
+S'sortable'
+p28
 I8
-sg15
+sS'sql'
+p29
 S'INTEGER REFERENCES opettaja (id) ON DELETE CASCADE'
-p34
-sg17
+p30
+sS'length'
+p31
 I512
-sg18
+sS'notnull'
+p32
 I00
-sg19
+sS'unique'
+p33
 I00
-sg20
+sS'type'
+p34
 S'reference opettaja'
 p35
 ssS'otsikko'
@@ -118,22 +118,22 @@ sg9
 I00
 sg10
 g11
-ssS'kurssi_id'
+ssS'oppilas_id'
 p43
 (dp44
-g4
-I512
-sg5
-I00
-sg6
-I6
-sg7
-S'INTEGER REFERENCES kurssi (id) ON DELETE CASCADE'
+g28
+I7
+sg29
+S'INTEGER REFERENCES oppilas (id) ON DELETE CASCADE'
 p45
-sg9
+sg31
+I512
+sg32
 I00
-sg10
-S'reference kurssi'
+sg33
+I00
+sg34
+S'reference oppilas'
 p46
 ssS'arvosana'
 p47
@@ -151,7 +151,7 @@ sg9
 I00
 sg10
 g39
-ssS'id'
+ssS'kurssi_id'
 p50
 (dp51
 g4
@@ -159,30 +159,30 @@ I512
 sg5
 I00
 sg6
-I1
+I6
 sg7
-S'INTEGER PRIMARY KEY AUTOINCREMENT'
+S'INTEGER REFERENCES kurssi (id) ON DELETE CASCADE'
 p52
 sg9
 I00
 sg10
-S'id'
+S'reference kurssi'
 p53
 ssS'tyo_id'
 p54
 (dp55
-g14
+g28
 I6
-sg15
+sg29
 S'INTEGER REFERENCES tyo (id) ON DELETE CASCADE'
 p56
-sg17
+sg31
 I512
-sg18
+sg32
 I00
-sg19
+sg33
 I00
-sg20
+sg34
 S'reference tyo'
 p57
 ss.
