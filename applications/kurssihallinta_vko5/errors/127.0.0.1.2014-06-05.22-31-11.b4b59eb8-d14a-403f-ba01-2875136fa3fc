@@ -1,0 +1,640 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.AttributeError'> 'Row' object has no attribute 'first_name'"
+p3
+sS'layer'
+p4
+S'/home/mka/web2py/applications/kurssihallinta/views/appadmin.html'
+p5
+sS'code'
+p6
+S'response.write(\'<!DOCTYPE html>\\n<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->\\n<!--[if lt IE 7]><html class="ie ie6 ie-lte9 ie-lte8 ie-lte7 no-js" lang="\', escape=False)\nresponse.write(T.accepted_language or \'en\')\nresponse.write(\'"> <![endif]-->\\n<!--[if IE 7]><html class="ie ie7 ie-lte9 ie-lte8 ie-lte7 no-js" lang="\', escape=False)\nresponse.write(T.accepted_language or \'en\')\nresponse.write(\'"> <![endif]-->\\n<!--[if IE 8]><html class="ie ie8 ie-lte9 ie-lte8 no-js" lang="\', escape=False)\nresponse.write(T.accepted_language or \'en\')\nresponse.write(\'"> <![endif]-->\\n<!--[if IE 9]><html class="ie9 ie-lte9 no-js" lang="\', escape=False)\nresponse.write(T.accepted_language or \'en\')\nresponse.write(\'"> <![endif]-->\\n<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="\', escape=False)\nresponse.write(T.accepted_language or \'en\')\nresponse.write(\'"> <!--<![endif]-->\\n<head>\\n  <meta charset="utf-8" />\\n  <!-- www.phpied.com/conditional-comments-block-downloads/ -->\\n  <!-- Always force latest IE rendering engine\\n\\t   (even in intranet) & Chrome Frame\\n\\t   Remove this if you use the .htaccess -->\\n  <!--[if IE]>\\n    <meta http-equiv="X-UA-Compatible" content="IE=edge\', escape=False)\nresponse.write(not request.is_local and \',chrome=1\' or \'\')\nresponse.write(\'">\\n  <![endif]-->\\n  \\n  <title>\', escape=False)\nresponse.write(response.title or request.application)\nresponse.write(\'</title>\\n  \\n  <!-- http://dev.w3.org/html5/markup/meta.name.html -->\\n  <meta name="application-name" content="\', escape=False)\nresponse.write(request.application)\nresponse.write(\'" />\\n  \\n  <!-- Speaking of Google, don\\\'t forget to set your site up:\\n\\t   http://google.com/webmasters -->\\n  <meta name="google-site-verification" content="" />\\n\\n  <!--  Mobile Viewport Fix\\n\\t  j.mp/mobileviewport & davidbcalhoun.com/2010/viewport-metatag\\n\\t  device-width: Occupy full width of the screen in its current orientation\\n\\t  initial-scale = 1.0 retains dimensions instead of zooming out if page height > device height\\n\\t  user-scalable = yes allows the user to zoom in -->\\n  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">\\n  \\n  <!-- Place favicon.ico and apple-touch-icon.png in the root of your domain and delete these references -->\\n  <link rel="shortcut icon" href="\', escape=False)\nresponse.write(URL(\'static\',\'favicon.ico\'))\nresponse.write(\'" type="image/x-icon">\\n  <link rel="apple-touch-icon" href="\', escape=False)\nresponse.write(URL(\'static\',\'favicon.png\'))\nresponse.write(\'">\\n\\n  <!-- All JavaScript at the bottom, except for Modernizr which enables \\n\\t   HTML5 elements & feature detects -->\\n  <script src="\', escape=False)\nresponse.write(URL(\'static\',\'js/modernizr.custom.js\'))\nresponse.write(\'"></script>  \\n\\n  <!-- include stylesheets -->\\n  \', escape=False)\nresponse.files.append(URL(\'static\',\'css/skeleton.css\'))\nresponse.files.append(URL(\'static\',\'css/web2py.css\'))\nresponse.files.append(URL(\'static\',\'css/superfish.css\'))\nresponse.files.append(URL(\'static\',\'js/superfish.js\'))\nresponse.write(\'\\n\\n  \', escape=False)\nresponse.write(\'<script type="text/javascript"><!--\\n    // These variables are used by the web2py_ajax_init function in web2py_ajax.js (which is loaded below).\\n    var w2p_ajax_confirm_message = "\', escape=False)\nresponse.write(T(\'Are you sure you want to delete this object?\'))\nresponse.write(\'";\\n    var w2p_ajax_date_format = "\', escape=False)\nresponse.write(T(\'%Y-%m-%d\'))\nresponse.write(\'";\\n    var w2p_ajax_datetime_format = "\', escape=False)\nresponse.write(T(\'%Y-%m-%d %H:%M:%S\'))\nresponse.write(\'";\\n    //--></script>\\n\', escape=False)\nresponse.files.insert(0,URL(\'static\',\'js/jquery.js\'))\nresponse.files.insert(1,URL(\'static\',\'css/calendar.css\'))\nresponse.files.insert(2,URL(\'static\',\'js/calendar.js\'))\nresponse.files.insert(3,URL(\'static\',\'js/web2py.js\'))\nresponse.include_meta()\nresponse.include_files()\nresponse.write(\'\\n\', escape=False)\nresponse.write(\'\\n\\n  <script type="text/javascript">\\n    jQuery(function(){ jQuery(\\\'ul.sf-menu\\\').supersubs({minWidth:12,maxWidth:30,extraWidth:3}).superfish(); });\\n  </script>\\n\\n  \', escape=False)\n# using sidebars need to know what sidebar you want to use\nleft_sidebar_enabled = globals().get(\'left_sidebar_enabled\',False)\nright_sidebar_enabled = globals().get(\'right_sidebar_enabled\',False)\nmiddle_columns = {0:\'sixteen\',1:\'twelve\',2:\'eight\'}[\n(left_sidebar_enabled and 1 or 0)+(right_sidebar_enabled and 1 or 0)]\nresponse.write(\'\\n\\n  <!-- uncomment here to load jquery-ui\\n  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" type="text/css" media="all" />\\n  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script>\\n  uncomment to load jquery-ui //-->\\n</head>\\n<body>\\n  <div class="wrapper"><!-- for sticky footer -->\\n  \\n    <div class="topbar">\\n      <div class="container">    \\n        <div class="sixteen columns">\\n          <div id="navbar">\', escape=False)\nresponse.write(\'auth\' in globals() and auth.navbar(separators=(\' \',\' | \',\'\')))\nresponse.write(\'</div>\\n          \', escape=False)\nis_mobile=request.user_agent().is_mobile\nresponse.write(\'\\n          <div id="menu">\', escape=False)\nresponse.write(MENU(response.menu, _class=\'mobile-menu\' if is_mobile else \'sf-menu\',mobile=is_mobile))\nresponse.write(\'\\n          </div>\\n        </div>\\n      </div>\\n    </div><!-- topbar -->\\n    \\n    <div class="flash">\', escape=False)\nresponse.write(response.flash or \'\')\nresponse.write(\'</div>\\n    \\n    <div class="header">\\n      <div class="container">         \\n        <div class="sixteen columns">\\n          <h1 class="remove-bottom" style="margin-top: .5em;">\\n          \', escape=False)\nresponse.write(response.title or request.application)\nresponse.write(\'\\n          </h1>\\n          <h5>\', escape=False)\nresponse.write(response.subtitle or \'\')\nresponse.write(\'</h5>\\n        </div>\\n        <div class="sixteen columns">\\n          <div class="statusbar clearfix">\\n            \', escape=False)\nresponse.write(\'\\n            <div class="breadcrumbs">\', escape=False)\nresponse.write(request.function.replace(\'_\', \' \').title())\nresponse.write(\'</div>\\n            \', escape=False)\nresponse.write(\'\\n            <!-- xxx AddToAny BEGIN \\n            <div style="float:right; padding-top: .25em;" class="a2a_kit a2a_default_style">\\n            <a class="a2a_dd" href="http://www.addtoany.com/share_save">Share</a></div>\\n            <script type="text/javascript" src="http://static.addtoany.com/menu/page.js"></script>\\n             AddToAny END -->\\n          </div>\\n        </div>\\n      </div>\\n    </div>\\n\\n    <div class="main">\\n      <div class="container">                 \\n        \', escape=False)\nif left_sidebar_enabled:\n    response.write(\'\\n        <div class="four columns left-sidebar">\\n          \', escape=False)\n    response.write(\'\\n          <h3>Left Sidebar</h3>\\n          <p></p>\\n          \', escape=False)\n    response.write(\'\\n        </div>\\n        \', escape=False)\n    pass\nresponse.write(\'\\n        \\n        <div class="\', escape=False)\nresponse.write(middle_columns)\nresponse.write(\' columns center">\\n          \', escape=False)\nresponse.write(\'\\n          \', escape=False)\nresponse.write(\'\\n<script><!--\\n    jQuery(document).ready(function(){\\n    jQuery("table.sortable tbody tr").mouseover( function() {\\n    jQuery(this).addClass("highlight"); }).mouseout( function() { \\n    jQuery(this).removeClass("highlight"); });\\n    jQuery(\\\'table.sortable tbody tr:odd\\\').addClass(\\\'odd\\\');\\n    jQuery(\\\'table.sortable tbody tr:even\\\').addClass(\\\'even\\\');\\n});\\n//--></script>\\n\\n\', escape=False)\nif request.function==\'index\':\n    response.write(\'\\n<h2>\', escape=False)\n    response.write(T("Available databases and tables"))\n    response.write(\'</h2>\\n  \', escape=False)\n    if not databases:\n        response.write(T("No databases in this application"))\n        pass\n    response.write(\'\\n  \', escape=False)\n    for db in sorted(databases):\n        response.write(\'\\n    \', escape=False)\n        for table in databases[db].tables:\n            response.write(\'\\n      \', escape=False)\n            qry=\'%s.%s.id>0\'%(db,table)\n            response.write(\'\\n      \', escape=False)\n            tbl=databases[db][table]\n            response.write(\'\\n      \', escape=False)\n            if hasattr(tbl,\'_primarykey\'):\n                response.write(\'\\n        \', escape=False)\n                if tbl._primarykey:\n                    response.write(\'\\n            \', escape=False)\n                    firstkey=tbl[tbl._primarykey[0]]\n                    response.write(\'\\n            \', escape=False)\n                    if firstkey.type in [\'string\',\'text\']:\n                        response.write(\'\\n              \', escape=False)\n                        qry=\'%s.%s.%s!=""\'%(db,table,firstkey.name)\n                        response.write(\'\\n            \', escape=False)\n                    else:\n                        response.write(\'\\n              \', escape=False)\n                        qry=\'%s.%s.%s>0\'%(db,table,firstkey.name)\n                        response.write(\'\\n            \', escape=False)\n                        pass\n                    response.write(\'\\n        \', escape=False)\n                else:\n                    response.write(\'\\n             \', escape=False)\n                    qry=\'\'\n                    response.write(\'\\n             \', escape=False)\n                    pass\n                response.write(\'\\n      \', escape=False)\n                pass\n            response.write(\'\\n      <h3>\\n\\t\', escape=False)\n            response.write(A("%s.%s" % (db,table),_href=URL(\'select\',args=[db],vars=dict(query=qry))))\n            response.write(\'\\n      </h3>\\n      [ \', escape=False)\n            response.write(A(str(T(\'insert new\'))+\' \'+table,_href=URL(\'insert\',args=[db,table])))\n            response.write(\' ]\\n    <br /><br />\\n    \', escape=False)\n            pass\n        response.write(\'\\n  \', escape=False)\n        pass\n    response.write(\'\\n\\n\', escape=False)\nelif request.function==\'select\':\n    response.write(\'\\n  <h2>\', escape=False)\n    response.write(XML(str(T("database %s select"))%A(request.args[0],_href=URL(\'index\'))))\n    response.write(\'\\n  </h2>\\n   \', escape=False)\n    if table:\n        response.write(\'\\n  [ \', escape=False)\n        response.write(A(str(T(\'insert new %s\'))%table,_href=URL(\'insert\',args=[request.args[0],table])))\n        response.write(\' ]<br/><br/>\\n    <h3>\', escape=False)\n        response.write(T("Rows in table"))\n        response.write(\'</h3><br/>\\n   \', escape=False)\n    else:\n        response.write(\'\\n    <h3>\', escape=False)\n        response.write(T("Rows selected"))\n        response.write(\'</h3><br/>\\n   \', escape=False)\n        pass\n    response.write(\'\\n   \', escape=False)\n    response.write(form)\n    response.write(\'\\n   <p>\', escape=False)\n    response.write(T(\'The "query" is a condition like "db.table1.field1==\\\'value\\\'". Something like "db.table1.field1==db.table2.field2" results in a SQL JOIN.\'))\n    response.write(\'<br/>\\n      \', escape=False)\n    response.write(T(\'Use (...)&(...) for AND, (...)|(...) for OR, and ~(...)  for NOT to build more complex queries.\'))\n    response.write(\'<br/>\\n      \', escape=False)\n    response.write(T(\'"update" is an optional expression like "field1=\\\'newvalue\\\'". You cannot update or delete the results of a JOIN\'))\n    response.write(\'</p>\\n    <br/><br/>\\n    <h4>\', escape=False)\n    response.write(nrows)\n    response.write(\' \', escape=False)\n    response.write(T("selected"))\n    response.write(\'</h4>\\n    \', escape=False)\n    if start>0:\n        response.write(\'[ \', escape=False)\n        response.write(A(T(\'previous 100 rows\'),_href=URL(\'select\',args=request.args[0],vars=dict(start=start-100))))\n        response.write(\' ]\', escape=False)\n        pass\n    response.write(\'\\n    \', escape=False)\n    if stop<nrows:\n        response.write(\'[ \', escape=False)\n        response.write(A(T(\'next 100 rows\'),_href=URL(\'select\',args=request.args[0],vars=dict(start=start+100))))\n        response.write(\' ]\', escape=False)\n        pass\n    response.write(\'    \\n    \', escape=False)\n    if rows:\n        response.write(\'\\n       <div style="overflow: auto;" width="80%">\\n       \', escape=False)\n        linkto=URL(\'update\',args=request.args[0])\n        response.write(\'\\n       \', escape=False)\n        upload=URL(\'download\',args=request.args[0])\n        response.write(\'    \\n       \', escape=False)\n        response.write(SQLTABLE(rows,linkto,upload,orderby=True,_class=\'sortable\'))\n        response.write(\'\\n       </div>\\n    \', escape=False)\n        pass\n    response.write(\'\\n    <br/><br/><h3>\', escape=False)\n    response.write(T("Import/Export"))\n    response.write(\'</h3><br/>\\n    [ <a href="\', escape=False)\n    response.write(URL(\'csv\',args=request.args[0],vars=dict(query=query)))\n    response.write(\'">\', escape=False)\n    response.write(T("export as csv file"))\n    response.write(\'</a> ]\\n  \', escape=False)\n    if table:\n        response.write(\'\\n    \', escape=False)\n        response.write(FORM(str(T(\'or import from csv file\'))+" ",INPUT(_type=\'file\',_name=\'csvfile\'),INPUT(_type=\'hidden\',_value=table,_name=\'table\'),INPUT(_type=\'submit\',_value=\'import\')))\n        response.write(\'\\n  \', escape=False)\n        pass\n    response.write(\'\\n\\n\\n\', escape=False)\nelif request.function==\'insert\':\n    response.write(\'  \\n  <h2>\', escape=False)\n    response.write(T("database"))\n    response.write(\' \', escape=False)\n    response.write(A(request.args[0],_href=URL(\'index\')))\n    response.write(\'\\n    \', escape=False)\n    if hasattr(table,\'_primarykey\'):\n        response.write(\'\\n      \', escape=False)\n        fieldname=table._primarykey[0]\n        response.write(\'\\n      \', escape=False)\n        dbname=request.args[0]\n        response.write(\'\\n      \', escape=False)\n        tablename=request.args[1]\n        response.write(\'\\n      \', escape=False)\n        cond = table[fieldname].type in [\'string\',\'text\'] and \'!=""\' or \'>0\'\n        response.write(\'\\n      \', escape=False)\n        response.write(T("table"))\n        response.write(\' \', escape=False)\n        response.write(A(tablename,_href=URL(\'select\',args=dbname,vars=dict(query=\'%s.%s.%s%s\'%(dbname,tablename,fieldname,cond)))))\n        response.write(\'\\n    \', escape=False)\n    else:\n        response.write(\'  \\n      \', escape=False)\n        response.write(T("table"))\n        response.write(\' \', escape=False)\n        response.write(A(request.args[1],_href=URL(\'select\',args=request.args[0],vars=dict(query=\'%s.%s.id>0\'%tuple(request.args[:2])))))\n        response.write(\'\\n    \', escape=False)\n        pass\n    response.write(\'\\n  </h2>\\n  <h3>\', escape=False)\n    response.write(T("New Record"))\n    response.write(\'</h3><br/>\\n  \', escape=False)\n    response.write(form)\n    response.write(\'\\n\', escape=False)\nelif request.function==\'update\':\n    response.write(\'\\n  <h2>\', escape=False)\n    response.write(T("database"))\n    response.write(\' \', escape=False)\n    response.write(A(request.args[0],_href=URL(\'index\')))\n    response.write(\'\\n    \', escape=False)\n    if hasattr(table,\'_primarykey\'):\n        response.write(\'\\n      \', escape=False)\n        fieldname=request.vars.keys()[0]\n        response.write(\'\\n      \', escape=False)\n        dbname=request.args[0]\n        response.write(\'\\n      \', escape=False)\n        tablename=request.args[1]\n        response.write(\'\\n      \', escape=False)\n        cond = table[fieldname].type in [\'string\',\'text\'] and \'!=""\' or \'>0\'\n        response.write(\'      \\n      \', escape=False)\n        response.write(T("table"))\n        response.write(\' \', escape=False)\n        response.write(A(tablename,_href=URL(\'select\',args=dbname,vars=dict(query=\'%s.%s.%s%s\'%(dbname,tablename,fieldname,cond)))))\n        response.write(\'\\n      \', escape=False)\n        response.write(T("record"))\n        response.write(\' \', escape=False)\n        response.write(A(\'%s=%s\'%request.vars.items()[0],_href=URL(\'update\',args=request.args[:2],vars=request.vars)))\n        response.write(\'\\n    \', escape=False)\n    else:\n        response.write(\'\\n      \', escape=False)\n        response.write(T("table"))\n        response.write(\' \', escape=False)\n        response.write(A(request.args[1],_href=URL(\'select\',args=request.args[0],vars=dict(query=\'%s.%s.id>0\'%tuple(request.args[:2])))))\n        response.write(\'\\n      \', escape=False)\n        response.write(T("record id"))\n        response.write(\' \', escape=False)\n        response.write(A(request.args[2],_href=URL(\'update\',args=request.args[:3])))\n        response.write(\'\\n    \', escape=False)\n        pass\n    response.write(\'\\n  </h2>\\n  <h3>\', escape=False)\n    response.write(T("Edit current record"))\n    response.write(\'</h3><br/><br/>\', escape=False)\n    response.write(form)\n    response.write(\'\\n\\n\', escape=False)\nelif request.function==\'state\':\n    response.write(\'\\n  <h2>\', escape=False)\n    response.write(T("Internal State"))\n    response.write(\'</h2>\\n  <h3>\', escape=False)\n    response.write(T("Current request"))\n    response.write(\'</h3>\\n  \', escape=False)\n    response.write(BEAUTIFY(request))\n    response.write(\'\\n  <br/><h3>\', escape=False)\n    response.write(T("Current response"))\n    response.write(\'</h3>\\n  \', escape=False)\n    response.write(BEAUTIFY(response))\n    response.write(\'\\n  <br/><h3>\', escape=False)\n    response.write(T("Current session"))\n    response.write(\'</h3>\\n  \', escape=False)\n    response.write(BEAUTIFY(session))\n    response.write(\'\\n\\n\\n\', escape=False)\nelif request.function == \'ccache\':\n    response.write(\'\\n<h2>Cache</h2>\\n<div class="list">\\n\\n  <div class="list-header">\\n    <h3>Statistics</h3>\\n  </div>\\n\\n  <div class="content">\\n    <h4>Overview</h4>\\n    <p>Number of entries: <strong>\', escape=False)\n    response.write(total[\'entries\'])\n    response.write(\'</strong>\\n      \', escape=False)\n    if total[\'entries\'] > 0:\n        response.write(\'\\n    </p>\\n    <p>\\n      Hit Ratio: \\n      <strong>\', escape=False)\n        response.write(total[\'ratio\'])\n        response.write(\'%</strong> \\n      (<strong>\', escape=False)\n        response.write(total[\'hits\'])\n        response.write(\'</strong> hits \\n      and <strong>\', escape=False)\n        response.write(total[\'misses\'])\n        response.write(\'</strong> misses)\\n    </p>\\n    <p>\\n      Size of cache: \\n      \', escape=False)\n        if object_stats:\n            response.write(\'\\n      <strong>\', escape=False)\n            response.write(total[\'objects\'])\n            response.write(\'</strong> items, \\n      <strong>\', escape=False)\n            response.write(total[\'bytes\'])\n            response.write(\'</strong> bytes \\n      \', escape=False)\n            if total[\'bytes\'] > 524287:\n                response.write(\'\\n      (<strong>\', escape=False)\n                response.write("%.0d" % (total[\'bytes\'] / 1048576))\n                response.write(\' MB</strong>)\\n      \', escape=False)\n                pass\n            response.write(\'\\n      \', escape=False)\n        else:\n            response.write(\' <strong>not available</strong> (requires the Python <a href="http://pypi.python.org/pypi/guppy/" target="_blank">guppy</a> library)\\n      \', escape=False)\n            pass\n        response.write(\'\\n    </p>\\n    <p>\\n      Cache contains items up to \\n      <strong>\', escape=False)\n        response.write("%02d" % total[\'oldest\'][0])\n        response.write(\'</strong> hours \\n      <strong>\', escape=False)\n        response.write("%02d" % total[\'oldest\'][1])\n        response.write(\'</strong> minutes \\n      <strong>\', escape=False)\n        response.write("%02d" % total[\'oldest\'][2])\n        response.write(\'</strong> seconds old.\\n    </p>\\n    \', escape=False)\n        response.write(BUTTON(T(\'Cache Keys\'), _onclick=\'jQuery("#all_keys").toggle();\'))\n        response.write(\'\\n    <div class="hidden" id="all_keys">\\n      \', escape=False)\n        response.write(total[\'keys\'])\n        response.write(\'\\n    </div>\\n    <br />\\n    \', escape=False)\n        pass\n    response.write(\'\\n        \\n    <h4>RAM</h4>\\n    <p>Number of entries: <strong>\', escape=False)\n    response.write(ram[\'entries\'])\n    response.write(\'</strong>\\n        \', escape=False)\n    if ram[\'entries\'] > 0:\n        response.write(\'</p>\\n    <p>\\n      Hit Ratio: \\n      <strong>\', escape=False)\n        response.write(ram[\'ratio\'])\n        response.write(\'%</strong> \\n      (<strong>\', escape=False)\n        response.write(ram[\'hits\'])\n        response.write(\'</strong> hits \\n      and <strong>\', escape=False)\n        response.write(ram[\'misses\'])\n        response.write(\'</strong> misses)\\n    </p>\\n    <p>\\n      Size of cache: \\n      \', escape=False)\n        if object_stats:\n            response.write(\'\\n      <strong>\', escape=False)\n            response.write(ram[\'objects\'])\n            response.write(\'</strong> items, \\n      <strong>\', escape=False)\n            response.write(ram[\'bytes\'])\n            response.write(\'</strong> bytes \\n      \', escape=False)\n            if ram[\'bytes\'] > 524287:\n                response.write(\'\\n      (<strong>\', escape=False)\n                response.write(ram[\'bytes\'] / 1048576)\n                response.write(\' MB</strong>)\\n      \', escape=False)\n                pass\n            response.write(\'\\n      \', escape=False)\n        else:\n            response.write(\' <strong>not available</strong> (requires the Python <a href="http://pypi.python.org/pypi/guppy/" target="_blank">guppy</a> library)\\n      \', escape=False)\n            pass\n        response.write(\'\\n    </p>\\n    <p>\\n      RAM contains items up to \\n      <strong>\', escape=False)\n        response.write("%02d" % ram[\'oldest\'][0])\n        response.write(\'</strong> hours \\n      <strong>\', escape=False)\n        response.write("%02d" % ram[\'oldest\'][1])\n        response.write(\'</strong> minutes \\n      <strong>\', escape=False)\n        response.write("%02d" % ram[\'oldest\'][2])\n        response.write(\'</strong> seconds old.\\n    </p>\\n    \', escape=False)\n        response.write(BUTTON(T(\'RAM Cache Keys\'), _onclick=\'jQuery("#ram_keys").toggle();\'))\n        response.write(\'\\n    <div class="hidden" id="ram_keys">\\n      \', escape=False)\n        response.write(ram[\'keys\'])\n        response.write(\'\\n    </div>\\n    <br />\\n    \', escape=False)\n        pass\n    response.write(\'\\n    \\n    <h4>DISK</h4>\\n    <p>Number of entries: <strong>\', escape=False)\n    response.write(disk[\'entries\'])\n    response.write(\'</strong>\\n      \', escape=False)\n    if disk[\'entries\'] > 0:\n        response.write(\'\\n    </p>\\n    <p>\\n      Hit Ratio: \\n      <strong>\', escape=False)\n        response.write(disk[\'ratio\'])\n        response.write(\'%</strong> \\n      (<strong>\', escape=False)\n        response.write(disk[\'hits\'])\n        response.write(\'</strong> hits \\n      and <strong>\', escape=False)\n        response.write(disk[\'misses\'])\n        response.write(\'</strong> misses)\\n    </p>\\n    <p>\\n      Size of cache: \\n      \', escape=False)\n        if object_stats:\n            response.write(\'\\n      <strong>\', escape=False)\n            response.write(disk[\'objects\'])\n            response.write(\'</strong> items, \\n      <strong>\', escape=False)\n            response.write(disk[\'bytes\'])\n            response.write(\'</strong> bytes \\n      \', escape=False)\n            if disk[\'bytes\'] > 524287:\n                response.write(\'\\n      (<strong>\', escape=False)\n                response.write(disk[\'bytes\'] / 1048576)\n                response.write(\' MB</strong>)\\n      \', escape=False)\n                pass\n            response.write(\'\\n      \', escape=False)\n        else:\n            response.write(\' <strong>not available</strong> (requires the Python <a href="http://pypi.python.org/pypi/guppy/" target="_blank">guppy</a> library)\\n      \', escape=False)\n            pass\n        response.write(\'\\n    </p>\\n    <p>\\n      DISK contains items up to \\n      <strong>\', escape=False)\n        response.write("%02d" % disk[\'oldest\'][0])\n        response.write(\'</strong> hours \\n      <strong>\', escape=False)\n        response.write("%02d" % disk[\'oldest\'][1])\n        response.write(\'</strong> minutes \\n      <strong>\', escape=False)\n        response.write("%02d" % disk[\'oldest\'][2])\n        response.write(\'</strong> seconds old.\\n    </p>\\n    \', escape=False)\n        response.write(BUTTON(T(\'Disk Cache Keys\'), _onclick=\'jQuery("#disk_keys").toggle();\'))\n        response.write(\'\\n    <div class="hidden" id="disk_keys">\\n      \', escape=False)\n        response.write(disk[\'keys\'])\n        response.write(\'\\n    </div>\\n    <br />\\n    \', escape=False)\n        pass\n    response.write(\'\\n  </div>\\n    \\n  <div class="list-header">\\n    <h3>Manage Cache</h3>\\n  </div>\\n  \\n  <div class="content">\\n    <p>\\n      \', escape=False)\n    response.write(form)\n    response.write(\'\\n    </p>\\n  </div>\\n</div>\\n<div class="clear"></div>\\n\', escape=False)\n    pass\nresponse.write(\'\\n\', escape=False)\nresponse.write(\'\\n          \', escape=False)\nresponse.write(\'\\n        </div>\\n        \\n        \', escape=False)\nif right_sidebar_enabled:\n    response.write(\'\\n        <div class="four columns">\\n          \', escape=False)\n    response.write(\'\\n          <h3>Right Sidebar</h3>\\n          <p></p>\\n          \', escape=False)\n    response.write(\'\\n        </div>    \\n        \', escape=False)\n    pass\nresponse.write(\'\\n        \\n      </div><!-- container -->\\n    </div><!-- main -->\\n    \\n    <div class="push"></div>\\n  </div><!-- wrapper -->\\n\\n  <div class="footer">\\n    <div class="container">    \\n      <div class="sixteen columns">\\n        \', escape=False)\nresponse.write(\' <!-- this is default footer -->\\n        <div class="footer-content clearfix">\\n          <div class="copyright">\', escape=False)\nresponse.write(T(\'Copyright\'))\nresponse.write(\' &#169; 2011</div>\\n          <div style="float: right;">\\n            <a href="http://www.web2py.com/">\\n            <img style="padding-bottom: 0;" src="\', escape=False)\nresponse.write(URL(\'static\',\'images/poweredby.png\'))\nresponse.write(\'"/>\\n            </a>\\n          </div>\\n        </div>\\n        \', escape=False)\nresponse.write(\'\\t\\n      </div>\\n    </div><!-- container -->\\n  </div><!-- footer -->\\n  \\n  <!--[if lt IE 7 ]>\\n\\t<script src="\', escape=False)\nresponse.write(URL(\'static\',\'js/dd_belatedpng.js\'))\nresponse.write(\'"></script>\\n\\t<script> DD_belatedPNG.fix(\\\'img, .png_bg\\\'); //fix any <img> or .png_bg background-images </script>\\n\\t<![endif]-->\\n  \', escape=False)\nif response.google_analytics_id:\n    response.write(\'<script type="text/javascript"> var _gaq = _gaq || []; _gaq.push([\\\'_setAccount\\\', \\\'\', escape=False)\n    response.write(response.google_analytics_id)\n    response.write("\']); _gaq.push([\'_trackPageview\']); (function() { var ga = document.createElement(\'script\'); ga.type = \'text/javascript\'; ga.async = true; ga.src = (\'https:\' == document.location.protocol ? \'https://ssl\' : \'http://www\') + \'.google-analytics.com/ga.js\'; var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(ga, s); })(); </script> ", escape=False)\n    pass\nresponse.write(\'\\n</body>\\n</html>\\n\', escape=False)'
+p7
+sS'snapshot'
+p8
+(dp9
+S'exception'
+p10
+(dp11
+S'__hash__'
+p12
+S"<method-wrapper '__hash__' of exceptions.AttributeError object>"
+p13
+sS'__setattr__'
+p14
+S"<method-wrapper '__setattr__' of exceptions.AttributeError object>"
+p15
+sS'__reduce_ex__'
+p16
+S'<built-in method __reduce_ex__ of exceptions.AttributeError object>'
+p17
+sS'__getslice__'
+p18
+S"<method-wrapper '__getslice__' of exceptions.AttributeError object>"
+p19
+sS'__getitem__'
+p20
+S"<method-wrapper '__getitem__' of exceptions.AttributeError object>"
+p21
+sS'__setstate__'
+p22
+S'<built-in method __setstate__ of exceptions.AttributeError object>'
+p23
+sS'__reduce__'
+p24
+S'<built-in method __reduce__ of exceptions.AttributeError object>'
+p25
+sS'__str__'
+p26
+S"<method-wrapper '__str__' of exceptions.AttributeError object>"
+p27
+sS'__format__'
+p28
+S'<built-in method __format__ of exceptions.AttributeError object>'
+p29
+sS'__getattribute__'
+p30
+S"<method-wrapper '__getattribute__' of exceptions.AttributeError object>"
+p31
+sS'__class__'
+p32
+S"<type 'exceptions.AttributeError'>"
+p33
+sS'__unicode__'
+p34
+S'<built-in method __unicode__ of exceptions.AttributeError object>'
+p35
+sS'__delattr__'
+p36
+S"<method-wrapper '__delattr__' of exceptions.AttributeError object>"
+p37
+sS'__subclasshook__'
+p38
+S'<built-in method __subclasshook__ of type object>'
+p39
+sS'__repr__'
+p40
+S"<method-wrapper '__repr__' of exceptions.AttributeError object>"
+p41
+sS'args'
+p42
+S'("\'Row\' object has no attribute \'first_name\'",)'
+p43
+sS'__dict__'
+p44
+S'{}'
+p45
+sS'__sizeof__'
+p46
+S'<built-in method __sizeof__ of exceptions.AttributeError object>'
+p47
+sS'__doc__'
+p48
+S"'Attribute not found.'"
+p49
+sS'__init__'
+p50
+S"<method-wrapper '__init__' of exceptions.AttributeError object>"
+p51
+sS'__new__'
+p52
+S'<built-in method __new__ of type object>'
+p53
+ssS'evalue'
+p54
+S"'Row' object has no attribute 'first_name'"
+p55
+sS'request'
+p56
+cgluon.html
+XML_unpickle
+p57
+(S's\xa4\\\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">ajax</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">application</td><td style="vertical-align:top;">:</td><td><div>kurssihallinta</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">args</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>db</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cid</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">client</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">controller</td><td style="vertical-align:top;">:</td><td><div>appadmin</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_id_admin</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-30308e9a-b13c-4fde-9ae4-9302eaa89fb5<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_kurssihallinta</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-96904370-e912-4501-8478-1d0f57039471<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_welcome</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-bc9529d5-deab-46b2-86a7-b79fa19cbbe9<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">env</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_CHARSET</td><td style="vertical-align:top;">:</td><td><div>ISO-8859-1,utf-8;q=0.7,*;q=0.3</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_ENCODING</td><td style="vertical-align:top;">:</td><td><div>gzip,deflate,sdch</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_LANGUAGE</td><td style="vertical-align:top;">:</td><td><div>en-US,en;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CONNECTION</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_COOKIE</td><td style="vertical-align:top;">:</td><td><div>session_id_welcome=127.0.0.1-bc9529d5-deab-46b2-86a7-b79fa19cbbe9; session_id_admin=127.0.0.1-30308e9a-b13c-4fde-9ae4-9302eaa89fb5; session_id_kurssihallinta=127.0.0.1-96904370-e912-4501-8478-1d0f57039471</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_HOST</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_REFERER</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8000/kurssihallinta/appadmin/index</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_USER_AGENT</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.63 Safari/537.31</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">PATH_INFO</td><td style="vertical-align:top;">:</td><td><div>/kurssihallinta/appadmin/select/db</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">QUERY_STRING</td><td style="vertical-align:top;">:</td><td><div>query=db.kurssi.id%3E0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_ADDR</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_PORT</td><td style="vertical-align:top;">:</td><td><div>48174</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REQUEST_METHOD</td><td style="vertical-align:top;">:</td><td><div>GET</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SCRIPT_NAME</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_NAME</td><td style="vertical-align:top;">:</td><td><div>mka3830TG</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PORT</td><td style="vertical-align:top;">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PROTOCOL</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_SOFTWARE</td><td style="vertical-align:top;">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;/home/mka/web2py/applications/examples/&#x27;, &#x27;/home/mka/web2py/applications/opettaja/&#x27;, &#x27;/home/mka/web2py/applications/welcome/&#x27;, &#x27;/home/mka/web2py/applications/admin/&#x27;, &#x27;/home/mka/web2py/applications/kurssihallinta/&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>/home/mka/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_options</td><td style="vertical-align:top;">:</td><td><div>&lt;Values at 0x9333e4c: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;with_scheduler&#x27;: False, &#x27;ips&#x27;: [&#x27;::1&#x27;], &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;port&#x27;: 8000, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;mka3830TG&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: False, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;/home/mka/web2py&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;minthreads&#x27;: None, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;profiler_dir&#x27;: None, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;interfaces&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;scheduler_groups&#x27;: None, &#x27;password&#x27;: &#x27;&lt;ask&gt;&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;import_models&#x27;: False, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>/home/mka/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_charset</td><td style="vertical-align:top;">:</td><td><div>ISO-8859-1,utf-8;q=0.7,*;q=0.3</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_encoding</td><td style="vertical-align:top;">:</td><td><div>gzip,deflate,sdch</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_language</td><td style="vertical-align:top;">:</td><td><div>en-US,en;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_connection</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_cookie</td><td style="vertical-align:top;">:</td><td><div>session_id_welcome=127.0.0.1-bc9529d5-deab-46b2-86a7-b79fa19cbbe9; session_id_admin=127.0.0.1-30308e9a-b13c-4fde-9ae4-9302eaa89fb5; session_id_kurssihallinta=127.0.0.1-96904370-e912-4501-8478-1d0f57039471</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_host</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_referer</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8000/kurssihallinta/appadmin/index</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_user_agent</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.63 Safari/537.31</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>mka3830TG</div></td></tr><tr><td><div>localhost6.localdomain6</div></td></tr><tr><td><div>127.0.1.1</div></td></tr><tr><td><div>127.0.0.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path_info</td><td style="vertical-align:top;">:</td><td><div>/kurssihallinta/appadmin/select/db</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">query_string</td><td style="vertical-align:top;">:</td><td><div>query=db.kurssi.id%3E0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_addr</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_port</td><td style="vertical-align:top;">:</td><td><div>48174</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_method</td><td style="vertical-align:top;">:</td><td><div>GET</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_uri</td><td style="vertical-align:top;">:</td><td><div>/kurssihallinta/appadmin/select/db?query=db.kurssi.id%3E0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">script_name</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_name</td><td style="vertical-align:top;">:</td><td><div>mka3830TG</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_port</td><td style="vertical-align:top;">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_protocol</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_software</td><td style="vertical-align:top;">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_path</td><td style="vertical-align:top;">:</td><td><div>/home/mka/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.9.5-stable+timestamp.2014.03.16.02.35.39</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.errors</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0xb73190d0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x9302bfc&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.input</td><td style="vertical-align:top;">:</td><td><div>&lt;socket._fileobject object at 0xa6b2842c&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.url_scheme</td><td style="vertical-align:top;">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_errors</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0xb73190d0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x9302bfc&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_input</td><td style="vertical-align:top;">:</td><td><div>&lt;socket._fileobject object at 0xa6b2842c&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_url_scheme</td><td style="vertical-align:top;">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">extension</td><td style="vertical-align:top;">:</td><td><div>html</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">folder</td><td style="vertical-align:top;">:</td><td><div>/home/mka/web2py/applications/kurssihallinta/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">function</td><td style="vertical-align:top;">:</td><td><div>select</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">global_settings</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;/home/mka/web2py/applications/examples/&#x27;, &#x27;/home/mka/web2py/applications/opettaja/&#x27;, &#x27;/home/mka/web2py/applications/welcome/&#x27;, &#x27;/home/mka/web2py/applications/admin/&#x27;, &#x27;/home/mka/web2py/applications/kurssihallinta/&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>/home/mka/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_options</td><td style="vertical-align:top;">:</td><td><div>&lt;Values at 0x9333e4c: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;with_scheduler&#x27;: False, &#x27;ips&#x27;: [&#x27;::1&#x27;], &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;port&#x27;: 8000, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;mka3830TG&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: False, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;/home/mka/web2py&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;minthreads&#x27;: None, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;profiler_dir&#x27;: None, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;interfaces&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;scheduler_groups&#x27;: None, &#x27;password&#x27;: &#x27;&lt;ask&gt;&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;import_models&#x27;: False, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>/home/mka/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>mka3830TG</div></td></tr><tr><td><div>localhost6.localdomain6</div></td></tr><tr><td><div>127.0.1.1</div></td></tr><tr><td><div>127.0.0.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.9.5-stable+timestamp.2014.03.16.02.35.39</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_https</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_local</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_restful</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">now</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2014, 6, 5, 22, 31, 11, 323624)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_args</td><td style="vertical-align:top;">:</td><td><div>db</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_extension</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">url</td><td style="vertical-align:top;">:</td><td><div>/kurssihallinta/appadmin/select/db</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">utcnow</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2014, 6, 5, 19, 31, 11, 323662)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">uuid</td><td style="vertical-align:top;">:</td><td><div>kurssihallinta/127.0.0.1.2014-06-05.22-31-11.b4b59eb8-d14a-403f-ba01-2875136fa3fc</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi</td><td style="vertical-align:top;">:</td><td><div>&lt;gluon.main.LazyWSGI object at 0x86ec120c&gt;</div></td></tr></table></div>'
+tRp58
+sS'frames'
+p59
+(lp60
+(dp61
+S'file'
+p62
+S'/home/mka/web2py/gluon/restricted.py'
+p63
+sS'dump'
+p64
+(dp65
+S'environment'
+p66
+S"{'A': <class 'gluon.html.A'>, 'ANY_OF': <class 'gluon.validators.ANY_OF'>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'BUTTON': <class 'gluon.html.BUTTON'>, 'CAT': <class 'gluon.html.CAT'>, 'CENTER': <class 'gluon.html.CENTER'>, ...}"
+p67
+sS'ccode'
+p68
+S'<code object <module> at 0x99b62020, file "/home...ions/kurssihallinta/views/appadmin.html", line 1>'
+p69
+ssS'lnum'
+p70
+I220
+sS'lines'
+p71
+(dp72
+I224
+S'        # do not encapsulate (obfuscate) the original RestrictedError'
+p73
+sI215
+S'    try:'
+p74
+sI216
+S'        if isinstance(code, types.CodeType):'
+p75
+sI217
+S'            ccode = code'
+p76
+sI218
+S'        else:'
+p77
+sI219
+S'            ccode = compile2(code, layer)'
+p78
+sI220
+S'        exec ccode in environment'
+p79
+sI221
+S'    except HTTP:'
+p80
+sI222
+S'        raise'
+p81
+sI223
+S'    except RestrictedError:'
+p82
+ssS'call'
+p83
+S'(code=r"response.write(\'<!DOCTYPE html>\\n<!-- paulirish....ponse.write(\'\\n</body>\\n</html>\\n\', escape=False)", environment={\'A\': <class \'gluon.html.A\'>, \'ANY_OF\': <class \'gluon.validators.ANY_OF\'>, \'Auth\': <class \'gluon.tools.Auth\'>, \'B\': <class \'gluon.html.B\'>, \'BEAUTIFY\': <class \'gluon.html.BEAUTIFY\'>, \'BODY\': <class \'gluon.html.BODY\'>, \'BR\': <class \'gluon.html.BR\'>, \'BUTTON\': <class \'gluon.html.BUTTON\'>, \'CAT\': <class \'gluon.html.CAT\'>, \'CENTER\': <class \'gluon.html.CENTER\'>, ...}, layer=\'/home/mka/web2py/applications/kurssihallinta/views/appadmin.html\')'
+p84
+sS'func'
+p85
+S'restricted'
+p86
+sa(dp87
+g62
+S'/home/mka/web2py/applications/kurssihallinta/views/appadmin.html'
+p88
+sg64
+(dp89
+S'available'
+p90
+S'undefined'
+p91
+sS'a'
+g91
+sS'target'
+p92
+g91
+sS'Python'
+p93
+g91
+sS'guppy'
+p94
+g91
+sS'library'
+p95
+g91
+sS'href'
+p96
+g91
+sS'the'
+p97
+g91
+sS'strong'
+p98
+g91
+sS'requires'
+p99
+g91
+ssg70
+I170
+sg71
+(dp100
+I161
+S"        response.write(' ]', escape=False)"
+p101
+sI162
+S'        pass'
+p102
+sI163
+S"    response.write('    \\n    ', escape=False)"
+p103
+sI164
+S'    if rows:'
+p104
+sI165
+S'        response.write(\'\\n       <div style="overflow: auto;" width="80%">\\n       \', escape=False)'
+p105
+sI166
+S"        linkto=URL('update',args=request.args[0])"
+p106
+sI167
+S"        response.write('\\n       ', escape=False)"
+p107
+sI168
+S"        upload=URL('download',args=request.args[0])"
+p108
+sI169
+S"        response.write('    \\n       ', escape=False)"
+p109
+sI170
+S"        response.write(SQLTABLE(rows,linkto,upload,orderby=True,_class='sortable'))"
+p110
+sI171
+S"        response.write('\\n       </div>\\n    ', escape=False)"
+p111
+sI172
+S'        pass'
+p112
+sI173
+S"    response.write('\\n    <br/><br/><h3>', escape=False)"
+p113
+sI174
+S'    response.write(T("Import/Export"))'
+p114
+sI175
+S'    response.write(\'</h3><br/>\\n    [ <a href="\', escape=False)'
+p115
+sI176
+S"    response.write(URL('csv',args=request.args[0],vars=dict(query=query)))"
+p116
+sI177
+S'    response.write(\'">\', escape=False)'
+p117
+sI178
+S'    response.write(T("export as csv file"))'
+p118
+sI179
+S"    response.write('</a> ]\\n  ', escape=False)"
+p119
+sI180
+S'    if table:'
+p120
+ssg83
+S'()'
+p121
+sg85
+S'<module>'
+p122
+sa(dp123
+g62
+S'/home/mka/web2py/gluon/sqlhtml.py'
+p124
+sg64
+(dp125
+S'_href'
+p126
+g91
+sS'field'
+p127
+S'<gluon.dal.Field object>'
+p128
+sS'builtinstr'
+p129
+S"<type 'str'>"
+p130
+sS'record'
+p131
+S"<Row {'opettaja_id': 2L, 'title': 'FY1', 'id': 4L}>"
+p132
+sS'r'
+S'2L'
+p133
+sS'href'
+p134
+S"'/kurssihallinta/appadmin/update/db/opettaja/2'"
+p135
+sS'global represent'
+p136
+S'<function represent>'
+p137
+sS'global A'
+p138
+S"<class 'gluon.html.A'>"
+p139
+ssg70
+I3035
+sg71
+(dp140
+I3030
+S"                            href = '%s/%s/%s' % (linkto, ref, r_old)"
+p141
+sI3031
+S"                            if ref.find('.') >= 0:"
+p142
+sI3032
+S"                                tref, fref = ref.split('.')"
+p143
+sI3033
+S"                                if hasattr(sqlrows.db[tref], '_primarykey'):"
+p144
+sI3034
+S"                                    href = '%s/%s?%s' % (linkto, tref, urllib.urlencode({fref: r}))"
+p145
+sI3035
+S'                        r = A(represent(field, r, record), _href=str(href))'
+p146
+sI3036
+S'                    elif field.represent:'
+p147
+sI3037
+S'                        r = represent(field, r, record)'
+p148
+sI3038
+S"                elif linkto and hasattr(field._table, '_primarykey')\\"
+p149
+sI3039
+S'                        and fieldname in field._table._primarykey:'
+p150
+ssg83
+S"(self=<gluon.sqlhtml.SQLTABLE object>, sqlrows=<Rows (2)>, linkto='/kurssihallinta/appadmin/update/db', upload='/kurssihallinta/appadmin/download/db', orderby=True, headers={}, truncate=16, columns=['kurssi.id', 'kurssi.title', 'kurssi.opettaja_id'], th_link='', extracolumns=None, selectid=None, renderstyle=False, cid=None, colgroup=False, **attributes={'_class': 'sortable'})"
+p151
+sg85
+g50
+sa(dp152
+g62
+S'/home/mka/web2py/gluon/sqlhtml.py'
+p153
+sg64
+(dp154
+S'value'
+p155
+S'2L'
+p156
+sS'f'
+S'<function repr_ref>'
+p157
+ssg70
+I59
+sg71
+(dp158
+I54
+S'        return str(value)'
+p159
+sI55
+S'    n = f.func_code.co_argcount - len(f.func_defaults or [])'
+p160
+sI56
+S"    if getattr(f, 'im_self', None):"
+p161
+sI57
+S'        n -= 1'
+p162
+sI58
+S'    if n == 1:'
+p163
+sI59
+S'        return f(value)'
+p164
+sI60
+S'    elif n == 2:'
+p165
+sI61
+S'        return f(value, record)'
+p166
+sI62
+S'    else:'
+p167
+sI63
+S'        raise RuntimeError("field representation must take 1 or 2 args")'
+p168
+ssg83
+S"(field=<gluon.dal.Field object>, value=2L, record=<Row {'opettaja_id': 2L, 'title': 'FY1', 'id': 4L}>)"
+p169
+sg85
+S'represent'
+p170
+sa(dp171
+g62
+S'/home/mka/web2py/gluon/dal.py'
+p172
+sg64
+(dp173
+S'builtinNone'
+p174
+S'None'
+p175
+sS'referenced'
+p176
+g91
+sS'f'
+S'<function ff>'
+p177
+sS'r'
+S'<Table opettaja (id,user_id)>'
+p178
+sS'ff'
+p179
+g91
+sS'repr_ref'
+p180
+g91
+sS'id'
+p181
+S'2L'
+p182
+sS'row'
+p183
+S'None'
+p184
+ssg70
+I7227
+sg71
+(dp185
+I7222
+S'        requires.append(validators.IS_DATETIME())'
+p186
+sI7223
+S"    elif db and field_type.startswith('reference') and \\"
+p187
+sI7224
+S"            field_type.find('.') < 0 and \\"
+p188
+sI7225
+S'            field_type[10:] in db.tables:'
+p189
+sI7226
+S'        referenced = db[field_type[10:]]'
+p190
+sI7227
+S'        def repr_ref(id, row=None, r=referenced, f=ff): return f(r, id)'
+p191
+sI7228
+S'        field.represent = field.represent or repr_ref'
+p192
+sI7229
+S"        if hasattr(referenced, '_format') and referenced._format:"
+p193
+sI7230
+S'            requires = validators.IS_IN_DB(db,referenced._id,'
+p194
+sI7231
+S'                                           referenced._format)'
+p195
+ssg83
+S'(id=2L, row=None, r=<Table opettaja (id,user_id)>, f=<function ff>)'
+p196
+sg85
+S'repr_ref'
+p197
+sa(dp198
+g62
+S'/home/mka/web2py/gluon/dal.py'
+p199
+sg64
+(dp200
+S'row'
+p201
+S"<Row {'user_id': 4L, 'id': 2L}>"
+p202
+sS'r'
+S'<Table opettaja (id,user_id)>'
+p203
+sS'r._format'
+p204
+S"'%(auth_user.first_name)s'"
+p205
+ssg70
+I7200
+sg71
+(dp206
+I7200
+S'            return r._format % row'
+p207
+sI7201
+S"        elif hasattr(r, '_format') and callable(r._format):"
+p208
+sI7202
+S'            return r._format(row)'
+p209
+sI7203
+S'        else:'
+p210
+sI7204
+S'            return id'
+p211
+sI7195
+S'    def ff(r,id):'
+p212
+sI7196
+S'        row=r(id)'
+p213
+sI7197
+S'        if not row:'
+p214
+sI7198
+S'            return id'
+p215
+sI7199
+S"        elif hasattr(r, '_format') and isinstance(r._format,str):"
+p216
+ssg83
+S'(r=<Table opettaja (id,user_id)>, id=2L)'
+p217
+sg85
+S'ff'
+p218
+sa(dp219
+g62
+S'/home/mka/web2py/gluon/dal.py'
+p220
+sg64
+(dp221
+S'ae'
+p222
+S'AttributeError("\'Row\' object has no attribute \'first_name\'",)'
+p223
+ssg70
+I7343
+sg71
+(dp224
+I7338
+S'        except (KeyError,AttributeError,TypeError), ae:'
+p225
+sI7339
+S'            try:'
+p226
+sI7340
+S"                self[key] = ogetattr(self,'__get_lazy_reference__')(key)"
+p227
+sI7341
+S'                return self[key]'
+p228
+sI7342
+S'            except:'
+p229
+sI7343
+S'                raise ae'
+p230
+sI7344
+S''
+sI7345
+S'    __setitem__ = lambda self, key, value: setattr(self, str(key), value)'
+p231
+sI7346
+S''
+sI7347
+S'    __delitem__ = object.__delattr__'
+p232
+ssg83
+S"(self=<Row {'user_id': 4L, 'id': 2L}>, k='auth_user.first_name')"
+p233
+sg85
+g20
+sasS'pyver'
+p234
+S'Python 2.7.3: /usr/bin/python (prefix: /usr)'
+p235
+sS'session'
+p236
+g57
+(S's\x95\n\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">auth</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">expiration</td><td style="vertical-align:top;">:</td><td><div>3600</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">hmac_key</td><td style="vertical-align:top;">:</td><td><div>2ad1c99c-aa97-40ea-9ae7-1b9eff092373</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">last_visit</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2014, 6, 5, 22, 31, 8, 155514)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remember</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">user</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">email</td><td style="vertical-align:top;">:</td><td><div>onerva.opettaja@gmail.com</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">first_name</td><td style="vertical-align:top;">:</td><td><div>Onerva</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">id</td><td style="vertical-align:top;">:</td><td><div>4L</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">last_name</td><td style="vertical-align:top;">:</td><td><div>Opettaja</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">registration_id</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">registration_key</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">reset_password_key</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">username</td><td style="vertical-align:top;">:</td><td><div>onerva</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">user_groups</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">1</td><td style="vertical-align:top;">:</td><td><div>opettaja</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">flash</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">last_orderby</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">last_query</td><td style="vertical-align:top;">:</td><td><div>db.kurssi.id&gt;0</div></td></tr></table></div>'
+tRp237
+sS'etype'
+p238
+S"<type 'exceptions.AttributeError'>"
+p239
+sS'date'
+p240
+S'Thu Jun  5 22:31:11 2014'
+p241
+sS'response'
+p242
+g57
+(S's\x1c \x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">body</td><td style="vertical-align:top;">:</td><td><div>&lt;cStringIO.StringO object at 0x86f3e5c0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_id_kurssihallinta</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-96904370-e912-4501-8478-1d0f57039471<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div>/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">delimiters</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>{{</div></td></tr><tr><td><div>}}</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">files</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>/kurssihallinta/static/js/jquery.js</div></td></tr><tr><td><div>/kurssihallinta/static/css/calendar.css</div></td></tr><tr><td><div>/kurssihallinta/static/js/calendar.js</div></td></tr><tr><td><div>/kurssihallinta/static/js/web2py.js</div></td></tr><tr><td><div>/kurssihallinta/static/css/skeleton.css</div></td></tr><tr><td><div>/kurssihallinta/static/css/web2py.css</div></td></tr><tr><td><div>/kurssihallinta/static/css/superfish.css</div></td></tr><tr><td><div>/kurssihallinta/static/js/superfish.js</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">flash</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">generic_patterns</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">google_analytics_id</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">headers</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">X-Powered-By</td><td style="vertical-align:top;">:</td><td><div>web2py</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">menu</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div><table><tr><td><div>design</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/admin/default/design/kurssihallinta</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>db</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/kurssihallinta/appadmin/index</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>state</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/kurssihallinta/appadmin/state</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>cache</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/kurssihallinta/appadmin/ccache</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">meta</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">author</td><td style="vertical-align:top;">:</td><td><div>Your Name &lt;you@example.com&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">copyright</td><td style="vertical-align:top;">:</td><td><div>Copyright 2011</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">description</td><td style="vertical-align:top;">:</td><td><div>a cool new app</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">generator</td><td style="vertical-align:top;">:</td><td><div>Web2py Web Framework</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">keywords</td><td style="vertical-align:top;">:</td><td><div>web2py, python, framework</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">models_to_run</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>^\\w+\\.py$</div></td></tr><tr><td><div>^appadmin/\\w+\\.py$</div></td></tr><tr><td><div>^appadmin/select/\\w+\\.py$</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">postprocessing</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_client</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_compression_level</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_expires</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_key</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_data_name</td><td style="vertical-align:top;">:</td><td><div>session_data_kurssihallinta</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_file</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;/home/mka/web2py/applications/kurssihallinta/sessions/127.0.0.1-96904370-e912-4501-8478-1d0f57039471&#x27;, mode &#x27;rb+&#x27; at 0x9fe77498&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_filename</td><td style="vertical-align:top;">:</td><td><div>/home/mka/web2py/applications/kurssihallinta/sessions/127.0.0.1-96904370-e912-4501-8478-1d0f57039471</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_hash</td><td style="vertical-align:top;">:</td><td><div>60e2a374210a7b96e51ec927fdc80baf</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-96904370-e912-4501-8478-1d0f57039471</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_name</td><td style="vertical-align:top;">:</td><td><div>session_id_kurssihallinta</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_locked</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_masterapp</td><td style="vertical-align:top;">:</td><td><div>kurssihallinta</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_new</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_storage_type</td><td style="vertical-align:top;">:</td><td><div>file</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">status</td><td style="vertical-align:top;">:</td><td><div>200</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">subtitle</td><td style="vertical-align:top;">:</td><td><div> </div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">title</td><td style="vertical-align:top;">:</td><td><div>Kurssihallinta</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">view</td><td style="vertical-align:top;">:</td><td><div>appadmin.html</div></td></tr></table></div>'
+tRp243
+sS'locals'
+p244
+(dp245
+S'ae'
+p246
+S'AttributeError("\'Row\' object has no attribute \'first_name\'",)'
+p247
+sS'k'
+S"'auth_user.first_name'"
+p248
+sS'm'
+S'<_sre.SRE_Match object>'
+p249
+sS'self'
+p250
+S"<Row {'user_id': 4L, 'id': 2L}>"
+p251
+sS'key'
+p252
+S"'first_name'"
+p253
+sS'_extra'
+p254
+S'None'
+p255
+sssS'traceback'
+p256
+S'Traceback (most recent call last):\n  File "/home/mka/web2py/gluon/restricted.py", line 220, in restricted\n    exec ccode in environment\n  File "/home/mka/web2py/applications/kurssihallinta/views/appadmin.html", line 170, in <module>\n    {{else:}} <strong>not available</strong> (requires the Python <a href="http://pypi.python.org/pypi/guppy/" target="_blank">guppy</a> library)\n  File "/home/mka/web2py/gluon/sqlhtml.py", line 3035, in __init__\n    r = A(represent(field, r, record), _href=str(href))\n  File "/home/mka/web2py/gluon/sqlhtml.py", line 59, in represent\n    return f(value)\n  File "/home/mka/web2py/gluon/dal.py", line 7227, in repr_ref\n    def repr_ref(id, row=None, r=referenced, f=ff): return f(r, id)\n  File "/home/mka/web2py/gluon/dal.py", line 7200, in ff\n    return r._format % row\n  File "/home/mka/web2py/gluon/dal.py", line 7343, in __getitem__\n    raise ae\nAttributeError: \'Row\' object has no attribute \'first_name\'\n'
+p257
+s.

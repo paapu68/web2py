@@ -1,0 +1,11 @@
+{{extend 'upperbar.html'}} 
+
+
+<h1>Lisätään uusi kurssityö </h1>
+
+{{=form}}
+
+
+
+
+

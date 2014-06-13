@@ -1,0 +1,29 @@
+<html>
+<body>
+<head>
+<div id="header">
+
+<div id="navigation"> 
+
+{{=auth.user.first_name}} {{=auth.user.last_name}}
+{{if (auth.has_membership(auth.id_group('opettaja'),auth.user.id)):}}
+{{=A('oma sivu', callback=URL('opettaja_alkusivu'))}}
+{{else:}}
+{{=A('oma sivu', callback=URL('opiskelija_kaikki_kurssit'))}}
+{{pass}}
+<a href="{{=URL('default/user','logout')}}">Logout</a>
+</div>
+
+
+ <!-- include stylesheets -->
+  {{
+  response.files.append(URL('static','css/skeleton.css'))
+  response.files.append(URL('static','css/web2py.css'))
+  response.files.append(URL('static','css/superfish.css'))
+  response.files.append(URL('static','js/superfish.js'))
+  }}
+
+{{include}}
+</head>
+</body>
+</html>

@@ -1,0 +1,25 @@
+# -*- coding: utf-8 -*-
+
+#oppilaaseen liittyvät tietokantahaut
+from gluon.sqlhtml import SQLFORM
+from gluon.html import INPUT
+import opettaja.test
+
+#@auth.requires_membership('oppilas')
+def hae_oppilaan_kaikki_kurssit(db):
+    #haetaan tietokannasta kaikki oppilasn kurssit
+    query = (db.oppilas.id == db.auth_user.id)&\
+        (db.kurssi.oppilas_id == db.oppilas.id)
+    return db(query).select()
+
+def hae_kurssin_kurssityot(kurssi_id, db):
+    #haetaan tietokannasta kaikki kurssin kurssityöt
+    query = (kurssi_id==db.kurssityo.kurssi_id)
+    return SQLFORM.grid(query)
+    #return SQLFORM.grid(query, selectable=lambda row: INPUT(_name='actioned',_type="checkbox",_value=id))
+    #return db(query).select()
+
+def hae_kurssin_nimi(kurssi_id, db):
+    #haetaan tietokannasta kaikki kurssin kurssityöt
+    query = (kurssi_id==db.kurssi.id)
+    return db(query).select(db.kurssi.title)

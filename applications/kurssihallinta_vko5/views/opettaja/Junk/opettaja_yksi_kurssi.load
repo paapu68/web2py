@@ -1,0 +1,8 @@
+<!-- lisägridi näytettäväksi sivulla opettaja_yksi_kurssi.html
+     ks. web2py manuaali, kappale 12
+     http://web2py.com/books/default/chapter/29/12/components-and-plugins
+-->
+
+{{=grid2}}
+
+
