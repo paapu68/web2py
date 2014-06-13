@@ -5,8 +5,12 @@
 
 <div id="navigation"> 
 
-{{=auth.user.first_name}} {{=auth.user.last_name}} 
-{{=A('oma sivu', callback=URL('kaikki_kurssit'))}}
+{{=auth.user.first_name}} {{=auth.user.last_name}}
+{{if (auth.has_membership(auth.id_group('opettaja'),auth.user.id)):}}
+{{=A('oma sivu', callback=URL('opettaja_alkusivu'))}}
+{{else:}}
+{{=A('oma sivu', callback=URL('opiskelija_kaikki_kurssit'))}}
+{{pass}}
 <a href="{{=URL('default/user','logout')}}">Logout</a>
 </div>
 

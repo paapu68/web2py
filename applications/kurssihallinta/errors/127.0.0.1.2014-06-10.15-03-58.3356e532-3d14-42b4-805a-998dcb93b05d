@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.SyntaxError'> define_table argument is not a Field or Table: ((opiskelija.id = auth_user.id) AND (kurssityo.opiskelija_id = opiskelija.id))"
+p3
+sS'layer'
+p4
+S'/home/mka/web2py/applications/kurssihallinta/controllers/opiskelija.py'
+p5
+sS'code'
+p6
+S'# -*- coding: utf-8 -*-\n#reload modules\nfrom gluon.custom_import import track_changes; track_changes(True)\nimport opiskelija_haut  #tietokantahaut ../modules/opiskelija_haut.py\nimport kurssi_haut  #tietokantahaut ../modules/kurssi_haut.py\n\n@auth.requires_membership(\'opiskelija\')\ndef kaikki_kurssit():\n    """\n    Opiskelijan kaikki kurssit\n    """\n    import sys\n\n    query = opiskelija_haut.hae_opiskelijan_kaikki_kurssit(db)\n    oppilaita_kurssilla = []\n\n    form = SQLFORM.factory(query)\n\n    response.view = \'opiskelija/opiskelija_kaikki_kurssit.html\'\n\n\n    if form.process().accepted:\n        print "HYV\xc3\x84KSYTTY", form.vars.kurssin_nimi\n        kurssi_id_tmp = int(form.vars.kurssin_nimi)-1\n        kurssi_id = kurssi_idt[kurssi_id_tmp]\n        form.vars.kurssin_nimi = kurssi_id\n        print "HYV\xc3\x84KSYTTY222", form.vars.kurssin_nimi\n\n        #pit\xc3\xa4\xc3\xa4 pudottaa fake-tietokantataulu pois \n        # jottei se kasva kokoajan\n        db.valitsekurssi.drop()\n        redirect(URL(\'yksi_kurssi\',vars=dict(kurssi_id=kurssi_id)))\n\n\n    return dict(opiskelijan_kurssit=opiskelijan_kurssit,\n                oppilaita_kurssilla=oppilaita_kurssilla,\n                form=form)\n\n\n#@auth.requires_membership(\'opiskelija\')\ndef yksi_kurssi():\n    """\n    Opiskelijan yksi kurssi\n    """\n    opiskelijan_kurssin_kurssityot = \\\n        kurssi_haut.hae_kurssin_kurssityot(request.vars.kurssi_id, db)\n    opiskelijan_kurssin_nimi = \\\n        kurssi_haut.hae_kurssin_nimi(request.vars.kurssi_id, db)\n    print "opiskelijan_kurssin_nimi", opiskelijan_kurssin_nimi[0].values()\n    opiskelijan_kurssin_nimi = opiskelijan_kurssin_nimi[0].values()[0]\n\n    print "kurssiID", request.vars.kurssi_id\n    #print "opiskelijan_kurssin_kurssityot", opiskelijan_kurssin_kurssityot\n    oppilaita_kurssilla = 1\n    response.view = \'opiskelija/opiskelija_yksi_kurssi.html\'\n\n    return dict(opiskelijan_kurssin_kurssityot=opiskelijan_kurssin_kurssityot,\n                opiskelijan_kurssin_nimi = opiskelijan_kurssin_nimi)\n\nresponse._vars=response._caller(kaikki_kurssit)\n'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/home/mka/web2py/gluon/restricted.py", line 220, in restricted\n    exec ccode in environment\n  File "/home/mka/web2py/applications/kurssihallinta/controllers/opiskelija.py", line 60, in <module>\n  File "/home/mka/web2py/gluon/globals.py", line 385, in <lambda>\n    self._caller = lambda f: f()\n  File "/home/mka/web2py/gluon/tools.py", line 3287, in f\n    return action(*a, **b)\n  File "/home/mka/web2py/applications/kurssihallinta/controllers/opiskelija.py", line 17, in kaikki_kurssit\n    form = SQLFORM.factory(query)\n  File "/home/mka/web2py/gluon/sqlhtml.py", line 1651, in factory\n    return SQLFORM(DAL(None).define_table(table_name, *fields),\n  File "/home/mka/web2py/gluon/dal.py", line 8223, in define_table\n    table = self.lazy_define_table(tablename,*fields,**args)\n  File "/home/mka/web2py/gluon/dal.py", line 8240, in lazy_define_table\n    table = table_class(self, tablename, *fields, **args)\n  File "/home/mka/web2py/gluon/dal.py", line 8725, in __init__\n    \'define_table argument is not a Field or Table: %s\' % field)\nSyntaxError: define_table argument is not a Field or Table: ((opiskelija.id = auth_user.id) AND (kurssityo.opiskelija_id = opiskelija.id))\n'
+p11
+s.

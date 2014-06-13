@@ -5,68 +5,58 @@ import opiskelija_haut  #tietokantahaut ../modules/opiskelija_haut.py
 import kurssi_haut  #tietokantahaut ../modules/kurssi_haut.py
 
 @auth.requires_membership('opiskelija')
-def kaikki_kurssit():
+def opiskelija_kaikki_kurssit():
     """
-    Opiskelijan kaikki kurssit
+    Opiskelijan kaikki kurssit. Niitä voi editoida, tuhota tai katsoa.
     """
     import sys
 
-    opiskelijan_kurssit = opiskelija_haut.hae_opiskelijan_kaikki_kurssit(db)
-    oppilaita_kurssilla = []
-    #tehdään fake-database käyttäen haettujen kurssien nimiä
-    #jotta saadaan ne alasvetovalikkoon
-    db.define_table('valitsekurssi',
-                    Field('kurssin_nimi'),
-                    format = '%(kurssin_nimi)s'
-                    )
-    kurssi_idt = []
-    for rivi in opiskelijan_kurssit:
-        db.valitsekurssi.insert(kurssin_nimi=rivi.kurssi.title)
-        print rivi.kurssi.id
-        kurssi_idt.append(rivi.kurssi.id)
+    query = opiskelija_haut.hae_opiskelijan_kaikki_kurssit(db)
 
-    form = SQLFORM.factory(
-        Field('kurssin_nimi', requires=IS_IN_DB(db, 
-                                        db.valitsekurssi.id,
-                                        '%(kurssin_nimi)s', zero=None)))
+    form_lisaa = FORM('Lisää työ:',
+                         SELECT('Lisää!',
+                                _name="my_selector"),
+                         INPUT(_type='submit'))
+    default_sort_order=[db.kurssityo.kurssi_id]
+    fields = (db.kurssityo.nimi_id,db.kurssityo.palautettu, 
+              db.kurssityo.korjattu,db.kurssityo.arvosana,
+              db.kurssityo.kurssi_id)
+    headers = {'kurssityo.nimi_id':   'Kurssityö',
+               'kurssityo.palautettu':   'Palautettu',
+               'kurssityo.korjattu':   'Korjattu',
+               'kurssityo.arvosana':   'Arvosana',
+               'kurssityo.kurssi_id':   'Kurssi'}               
+    form = SQLFORM.grid(query,create=False,searchable=False,
+                        orderby=default_sort_order,
+                        fields=fields, headers=headers)
 
     response.view = 'opiskelija/opiskelija_kaikki_kurssit.html'
 
+    if form_lisaa.process().accepted:
+        #print "LISATAAN !!!"
+        redirect(URL('opiskelija_lisaa_kurssityo'))
 
+    return dict(form=form, form_lisaa=form_lisaa)
+
+@auth.requires_membership('opiskelija')
+def opiskelija_lisaa_kurssityo():
+    """
+    Opiskelija voi lisätä yhden kurssityön
+    """
+    from gluon.tools import Auth
+    auth = Auth(db)
+# xxx alasvetovalikon rajoitus ei vielä toimi xxx
+#    print "opiskelija id", \
+#    db(db.opiskelija.user_id == auth.user_id).select(db.opiskelija.id)
+#    current_opiskelija = \
+#        db(db.opiskelija.user_id == auth.user_id).select(db.opiskelija)
+#    query = (db.kurssityo.opiskelija_id==current_opiskelija)
+#    db.kurssityo.property.requires=IS_IN_DB(db(query)) 
+#    db.kurssityo.opiskelija_id.requires=IS_IN_DB(db(query),'kurssityo.id') 
+    form = SQLFORM(db.kurssityo,fields = ['nimi_id','palautettu','opiskelija_id'])
     if form.process().accepted:
-        print "HYVÄKSYTTY", form.vars.kurssin_nimi
-        kurssi_id_tmp = int(form.vars.kurssin_nimi)-1
-        kurssi_id = kurssi_idt[kurssi_id_tmp]
-        form.vars.kurssin_nimi = kurssi_id
-        print "HYVÄKSYTTY222", form.vars.kurssin_nimi
-
-        #pitää pudottaa fake-tietokantataulu pois 
-        # jottei se kasva kokoajan
-        db.valitsekurssi.drop()
-        redirect(URL('yksi_kurssi',vars=dict(kurssi_id=kurssi_id)))
-
-
-    return dict(opiskelijan_kurssit=opiskelijan_kurssit,
-                oppilaita_kurssilla=oppilaita_kurssilla,
-                form=form)
-
-
-#@auth.requires_membership('opiskelija')
-def yksi_kurssi():
-    """
-    Opiskelijan yksi kurssi
-    """
-    opiskelijan_kurssin_kurssityot = \
-        kurssi_haut.hae_kurssin_kurssityot(request.vars.kurssi_id, db)
-    opiskelijan_kurssin_nimi = \
-        kurssi_haut.hae_kurssin_nimi(request.vars.kurssi_id, db)
-    print "opiskelijan_kurssin_nimi", opiskelijan_kurssin_nimi[0].values()
-    opiskelijan_kurssin_nimi = opiskelijan_kurssin_nimi[0].values()[0]
-
-    print "kurssiID", request.vars.kurssi_id
-    #print "opiskelijan_kurssin_kurssityot", opiskelijan_kurssin_kurssityot
-    oppilaita_kurssilla = 1
-    response.view = 'opiskelija/opiskelija_yksi_kurssi.html'
-
-    return dict(opiskelijan_kurssin_kurssityot=opiskelijan_kurssin_kurssityot,
-                opiskelijan_kurssin_nimi = opiskelijan_kurssin_nimi)
+        print form.vars.id
+        #db.kurssityo[form.vars.id] = dict(opiskelija_id=current_opiskelija)
+        #db.kurssityo[form.vars.id] = dict(kurssi_id=1)
+        redirect(URL('opiskelija_kaikki_kurssit'))
+    return dict(form=form)

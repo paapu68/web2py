@@ -1,0 +1,19 @@
+{{extend 'upperbar.html'}} 
+
+
+<h1>Kurssilista (uusin ensin)</h1>
+{{=SELECT(
+    OPTION('Option1', _value='1'),
+    OPTION('Option2', _value='2')
+    , value='2')
+}}
+{{=DIV('this', 'is', 'a', 'test', _id='123', _class='myclass')}}
+{{=DIV('text', data={'options':'{"mode":"calbox", "useNewStyle":true}'})}}
+{{=linkki1}}
+{{=linkki2}}
+
+{{=form}}
+
+
+
+

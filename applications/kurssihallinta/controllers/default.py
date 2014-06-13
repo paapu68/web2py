@@ -1,26 +1,26 @@
 # -*- coding: utf-8 -*-
-# this file is released under public domain and you can use without limitations
-
-#########################################################################
-## This is a samples controller
-## - index is the default action of any application
-## - user is required for authentication and authorization
-## - download is for downloading files uploaded in the db (does streaming)
-## - call exposes all registered services (none by default)
-#########################################################################
 
 @auth.requires_login()
 def index():
     """
-
+    Alkuvalikko ohjaa joko opettajan tai oppilaan alkusivulle, sen mukaan
+    kumpaan ryhmään sisäänkirjautunut käyttäjä kuuluu.
     """
 
+
+
+    #ohjaus opettajan tai oppilaan alkusivulle
     if (auth.has_membership(auth.id_group('opettaja'),auth.user.id)):
-        redirect(URL('opettaja','kaikki_kurssit'))
+        redirect(URL('opettaja','opettaja_alkusivu'))
     elif (auth.has_membership(auth.id_group('opiskelija'),auth.user.id)):
-        redirect(URL('opiskelija','kaikki_kurssit'))
+        redirect(URL('opiskelija','opiskelija_kaikki_kurssit'))
     else:
         redirect(URL('default','user'))
+        #xxx ei toimi #defaulttina kaikki uudet käyttäjät ovat oppilaita
+        #g = db.auth_group(role='opiskelija')
+        #gid = g.id 
+        #auth.settings.user_group_id = gid
+        #redirect(URL('opiskelija','opiskelija_kaikki_kurssit'))
     return dict(message=T('Hello World'))
 
 #@auth.requires_login()
@@ -39,3 +39,7 @@ def user():
     to decorate functions that need access control
     """
     return dict(form=auth())
+
+
+
+

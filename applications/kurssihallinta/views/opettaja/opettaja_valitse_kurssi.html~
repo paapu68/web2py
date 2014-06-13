@@ -1,0 +1,10 @@
+{{extend 'upperbar.html'}} 
+
+
+<h1>Valitse kurssi/ kurssit: </h1>
+
+{{=form}}
+
+
+
+

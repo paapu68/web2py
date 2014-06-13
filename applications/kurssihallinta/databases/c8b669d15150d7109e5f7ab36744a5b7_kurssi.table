@@ -82,26 +82,32 @@ sS'type'
 p37
 S'reference oppilas'
 p38
-ssS'opettaja_id'
+ssS'toidennimet'
 p39
 (dp40
-g21
-I512
-sg22
-I00
-sg23
-I3
-sg24
-S'INTEGER REFERENCES opettaja (id) ON DELETE CASCADE'
+S'sortable'
 p41
-sg26
-I00
-sg27
-S'reference opettaja'
+I3
+sS'sql'
 p42
-ssS'id'
+S'TEXT'
 p43
-(dp44
+sS'length'
+p44
+I512
+sS'notnull'
+p45
+I00
+sS'unique'
+p46
+I00
+sS'type'
+p47
+S'list:string'
+p48
+ssS'id'
+p49
+(dp50
 g21
 I512
 sg22
@@ -110,10 +116,27 @@ sg23
 I1
 sg24
 S'INTEGER PRIMARY KEY AUTOINCREMENT'
-p45
+p51
 sg26
 I00
 sg27
 S'id'
-p46
+p52
+ssS'opettaja_id'
+p53
+(dp54
+g21
+I512
+sg22
+I00
+sg23
+I3
+sg24
+S'INTEGER REFERENCES opettaja (id) ON DELETE CASCADE'
+p55
+sg26
+I00
+sg27
+S'reference opettaja'
+p56
 ss.

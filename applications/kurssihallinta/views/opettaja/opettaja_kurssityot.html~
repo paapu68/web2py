@@ -1,0 +1,7 @@
+{{extend 'upperbar.html'}} 
+
+<Button type="button" name ="seeting_button">
+<h1>Kurssitöitä:</h1>
+
+
+{{=grid2}}

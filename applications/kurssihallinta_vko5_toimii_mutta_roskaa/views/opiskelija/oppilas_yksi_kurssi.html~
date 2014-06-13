@@ -1,0 +1,7 @@
+{{extend 'upperbar.html'}}
+<h1>Kurssi NIMI</h1>
+
+kurssi oppilaita keskiarvo poista valitse oppilasEiPalauttanut opeEiLadannut opeEiKorjannut </br>
+<h3>VARSINAISET KURSSIT TÄHÄN</h3>
+
+
