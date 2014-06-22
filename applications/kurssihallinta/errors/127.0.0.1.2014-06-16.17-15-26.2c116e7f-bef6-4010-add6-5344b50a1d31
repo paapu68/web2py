@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.SyntaxError'> define_table argument is not a Field or Table: <function <lambda> at 0xa0fc0e2c>"
+p3
+sS'layer'
+p4
+S'/home/mka/web2py/applications/kurssihallinta/models/db.py'
+p5
+sS'code'
+p6
+S'#Heroku begin\nfrom gluon.tools import Auth\n\ndef format_opiskelija(record):\n    """ opiskelijan esitys """\n    return \'%s %s\' % (record.opiskelija.user_id.last_name,\n                      record.opiskelija.user_id.last_name)\n\nif not request.env.web2py_runtime_gae:\n    ## if NOT running on Google App Engine use SQLite or other DB\n    try: db = DAL(os.environ.get(\'DATABASE_URL\'))\n    except: db = DAL(\'sqlite://storage.sqlite\')\n#Heroku end\nauth = Auth(db)\nauth.define_tables(username=True)\n\ndb.define_table(\'opettaja\',\n   Field(\'user_id\', \'reference auth_user\'),\n                format=lambda r: \'%s %s\' \\\n                    % (db.auth_user[r.user_id].last_name,\n                       db.auth_user[r.user_id].first_name))\n\ndb.define_table(\'opiskelija\',\n                Field(\'user_id\', \'reference auth_user\'),\n                format=lambda r: \'%s %s\' \\\n                    % (db.auth_user[r.user_id].last_name,\n                       db.auth_user[r.user_id].first_name))\n\ndb.define_table(\'kurssi\',\n   Field(\'title\', unique=True),\n   Field(\'opettaja_id\', \'reference opettaja\'),\n   format = \'%(title)s\')\n\ndb.define_table(\'kurssityon_nimi\',\n   Field(\'title\'),\n   Field(\'kurssi_id\',\'reference kurssi\'),\n   Field(\'opettaja_id\', \'reference opettaja\'),\n   #format = \'%(title)s\')\n   lambda r: \'%s %s\' \\\n                    % (title) \\\n                    % (db.kurssi[r.kurssi_id].title)\n   )             \n\ndb.define_table(\'kurssityo\',\n   Field(\'nimi_id\',\'reference kurssityon_nimi\'),\n   Field(\'palautettu\', \'upload\'),\n   Field(\'korjattu\', \'upload\',writable = auth.has_membership(auth.id_group(\'opettaja\'))),\n   Field(\'arvosana\',writable = auth.has_membership(auth.id_group(\'opettaja\'))),\n   Field(\'kurssi_id\', \'reference kurssi\'),\n   Field(\'opiskelija_id\', \'reference opiskelija\'),\n   format=lambda r: \'%s %s\' \\\n       % ("A"+db.kurssityon_nimi[r.nimi_id].title) \\\n                    % (db.kurssi[r.kurssi_id].title)\n   )\n\n#db.tyo.title.requires = IS_NOT_IN_DB(db, db.tyo.title)\n#db.post.image_id.requires = IS_IN_DB(db, db.image.id, \'%(title)s\')\n#db.post.author.requires = IS_NOT_EMPTY()\n#db.post.email.requires = IS_EMAIL()\n#db.post.body.requires = IS_NOT_EMPTY()\n\n#db.post.image_id.writable = db.post.image_id.readable = False\n'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/home/mka/web2py/gluon/restricted.py", line 220, in restricted\n    exec ccode in environment\n  File "/home/mka/web2py/applications/kurssihallinta/models/db.py", line 39, in <module>\n    lambda r: \'%s %s\' \\\n  File "/home/mka/web2py/gluon/dal.py", line 8223, in define_table\n    table = self.lazy_define_table(tablename,*fields,**args)\n  File "/home/mka/web2py/gluon/dal.py", line 8240, in lazy_define_table\n    table = table_class(self, tablename, *fields, **args)\n  File "/home/mka/web2py/gluon/dal.py", line 8725, in __init__\n    \'define_table argument is not a Field or Table: %s\' % field)\nSyntaxError: define_table argument is not a Field or Table: <function <lambda> at 0xa0fc0e2c>\n'
+p11
+s.

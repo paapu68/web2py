@@ -16,11 +16,6 @@ def index():
         redirect(URL('opiskelija','opiskelija_kaikki_kurssit'))
     else:
         redirect(URL('default','user'))
-        #xxx ei toimi #defaulttina kaikki uudet käyttäjät ovat oppilaita
-        #g = db.auth_group(role='opiskelija')
-        #gid = g.id 
-        #auth.settings.user_group_id = gid
-        #redirect(URL('opiskelija','opiskelija_kaikki_kurssit'))
     return dict(message=T('Hello World'))
 
 #@auth.requires_login()
