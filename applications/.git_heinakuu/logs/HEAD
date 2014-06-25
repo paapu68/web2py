@@ -1,0 +1,3 @@
+0000000000000000000000000000000000000000 9fd8a541bb2d95d448da2a508497d248ce66baa5 Markus Kaukonen <markus.kaukonen@iki.fi> 1402254328 +0300	commit (initial): funktionaalisuus sinnepäin, MVC mallin mukainen suunnilleen
+9fd8a541bb2d95d448da2a508497d248ce66baa5 2f382addcd67bc5e0a7ac0e6611bd507f22e0c19 Markus Kaukonen <markus.kaukonen@iki.fi> 1402670964 +0300	commit: vko 5, toimiva versio
+2f382addcd67bc5e0a7ac0e6611bd507f22e0c19 9214889cfe34cefddb96df112fc430e122e333fc Markus Kaukonen <markus.kaukonen@iki.fi> 1403686191 +0300	commit: heroku auth bugikorjaus
