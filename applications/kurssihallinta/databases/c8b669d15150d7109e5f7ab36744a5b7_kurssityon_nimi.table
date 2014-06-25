@@ -45,7 +45,7 @@ sS'type'
 p20
 S'reference kurssi'
 p21
-ssS'opettaja_id'
+ssS'title'
 p22
 (dp23
 g14
@@ -53,14 +53,14 @@ I512
 sg15
 I00
 sg16
-I4
+I2
 sg17
-S'INTEGER REFERENCES opettaja (id) ON DELETE CASCADE'
+S'CHAR(512)'
 p24
 sg19
 I00
 sg20
-S'reference opettaja'
+S'string'
 p25
 ssS'id'
 p26
@@ -79,7 +79,7 @@ I00
 sg20
 S'id'
 p29
-ssS'title'
+ssS'opettaja_id'
 p30
 (dp31
 g14
@@ -87,13 +87,13 @@ I512
 sg15
 I00
 sg16
-I2
+I4
 sg17
-S'CHAR(512)'
+S'INTEGER REFERENCES opettaja (id) ON DELETE CASCADE'
 p32
 sg19
 I00
 sg20
-S'string'
+S'reference opettaja'
 p33
 ss.

@@ -4,6 +4,7 @@
 from gluon.sqlhtml import SQLFORM
 from gluon.html import INPUT
 
+
 def hae_kurssin_kurssityot(kurssi_ids, db):
     """haetaan tietokannasta kaikki kurssin kurssityöt
     haetaan samalla opiskelijoiden identiteetit"""

@@ -1,6 +1,7 @@
-#Heroku begin
-from gluon.tools import Auth
+# -*- coding: utf-8 -*-
 
+
+#Heroku begin
 def format_opiskelija(record):
     """ opiskelijan esitys """
     return '%s %s' % (record.opiskelija.user_id.last_name,
@@ -11,6 +12,8 @@ if not request.env.web2py_runtime_gae:
     try: db = DAL(os.environ.get('DATABASE_URL'))
     except: db = DAL('sqlite://storage.sqlite')
 #Heroku end
+
+from gluon.tools import Auth
 auth = Auth(db)
 auth.define_tables(username=True)
 

@@ -3,7 +3,9 @@
 from gluon.custom_import import track_changes; track_changes(True)
 import opiskelija_haut  #tietokantahaut ../modules/opiskelija_haut.py
 import kurssi_haut  #tietokantahaut ../modules/kurssi_haut.py
-from gluon.tools import Auth
+#from gluon.tools import Auth
+#auth = Auth(db)
+
 
 @auth.requires_membership('opiskelija')
 def opiskelija_kaikki_kurssit():

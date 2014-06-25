@@ -91,22 +91,22 @@ sS'type'
 p40
 S'reference opettaja'
 p41
-ssS'id'
+ssS'oppilas_id'
 p42
 (dp43
-g14
-I512
-sg15
-I00
-sg16
-I1
-sg17
-S'INTEGER PRIMARY KEY AUTOINCREMENT'
+g34
+I7
+sg35
+S'INTEGER REFERENCES oppilas (id) ON DELETE CASCADE'
 p44
-sg19
+sg37
+I512
+sg38
 I00
-sg20
-S'id'
+sg39
+I00
+sg40
+S'reference oppilas'
 p45
 ssS'kurssin_nimi'
 p46
@@ -238,22 +238,22 @@ I00
 sg20
 S'reference kurssityon_nimi'
 p84
-ssS'oppilas_id'
+ssS'id'
 p85
 (dp86
-g34
-I7
-sg35
-S'INTEGER REFERENCES oppilas (id) ON DELETE CASCADE'
-p87
-sg37
+g14
 I512
-sg38
+sg15
 I00
-sg39
+sg16
+I1
+sg17
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p87
+sg19
 I00
-sg40
-S'reference oppilas'
+sg20
+S'id'
 p88
 ssS'tyo_id'
 p89

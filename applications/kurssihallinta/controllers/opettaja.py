@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
+
 #reload modules
 from gluon.custom_import import track_changes; track_changes(True)
 import opettaja_haut  #tietokantahaut ../modules/opettaja_haut.py
 import kurssi_haut  #tietokantahaut ../modules/kurssi_haut.py
-from gluon.tools import Auth
+
 
 @auth.requires_membership('opettaja')
 def opettaja_alkusivu():
@@ -169,6 +170,7 @@ def opettaja_lisaa_kurssityo_otsikoita():
     Opettaja voi lisätä kursseille uusia kurssitöiden otsikoita
     """
     from gluon.tools import Auth
+    auth = Auth(db)
 
     kurssit_ids = string2lista(request.vars.kurssit_ids)
     #En saanut alasvetovalikon rajoitusta toiminaan...
@@ -177,7 +179,6 @@ def opettaja_lisaa_kurssityo_otsikoita():
 
     form = SQLFORM(db.kurssityon_nimi,
                    fields = ['title','kurssi_id'])
-    auth = Auth(db)
     query = db(db.opettaja.user_id == auth.user_id)
     sid = query.select(db.opettaja.id)[0].id
     #sid = opettaja_haut.hae_opettaja(db)
